@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TraineeTrackerFramework.lib.pages;
+namespace TraineeTrackerFramework.lib.pages.Account;
 
 public class TT_LoginPage
 {
@@ -14,9 +14,9 @@ public class TT_LoginPage
     private string _loginPageURL = AppConfigReader.LoginURL;
     private IWebElement _usernameField => _seleniumDriver.FindElement(By.Id("Credential_UserName"));
     private IWebElement _passwordField => _seleniumDriver.FindElement(By.Id("Credential_Password"));
-    private IWebElement _loginButton => _seleniumDriver.FindElement(By.Id("!!!!!!!!!!FILL ME IN!!!!!!!!!!!"));
-    private IWebElement _usernameAlert => _seleniumDriver.FindElement(By.Id("!!!!!!!!!!FILL ME IN!!!!!!!!!!!"));
-    private IWebElement _passwordAlert => _seleniumDriver.FindElement(By.Id("!!!!!!!!!!FILL ME IN!!!!!!!!!!!"));
+    private IWebElement _loginButton => _seleniumDriver.FindElement(By.Id("submit-button"));
+    private IWebElement _usernameAlert => _seleniumDriver.FindElement(By.Id("username_error_msg"));
+    private IWebElement _passwordAlert => _seleniumDriver.FindElement(By.Id("password_error_msg"));
     private IWebElement _spartaLogo => _seleniumDriver.FindElement(By.Id("!!!!!!!!!!FILL ME IN!!!!!!!!!!!"));
     private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.Id("!!!!!!!!!!FILL ME IN!!!!!!!!!!!"));
     #endregion
@@ -32,5 +32,6 @@ public class TT_LoginPage
     public string GetPasswordAlertText() => _passwordAlert.Text;
     public void ClickSpartaLogo() => _spartaLogo.Click();
     public void ClickPrivacyPolicy() => _privacyPolicyLink.Click();
+    public string GetPageTitle() => _seleniumDriver.Title;
     #endregion
 }

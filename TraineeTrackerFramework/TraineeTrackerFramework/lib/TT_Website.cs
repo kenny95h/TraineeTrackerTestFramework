@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using TraineeTrackerFramework.lib.driver_config;
-using TraineeTrackerFramework.lib.pages;
+using TraineeTrackerFramework.lib.pages.Account;
 
 namespace TraineeTrackerFramework.lib;
 
