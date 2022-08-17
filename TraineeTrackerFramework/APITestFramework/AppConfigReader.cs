@@ -17,5 +17,9 @@ namespace APITestApp
         public static readonly string detailsUrl = ConfigurationManager.AppSettings["details_url"];
         public static readonly string deleteUrl = ConfigurationManager.AppSettings["delete_url"];
         public static readonly string privacyUrl = ConfigurationManager.AppSettings["privacy_url"];
+        //Authorisation types
+        public static readonly string AdminAuth = ConfigurationManager.AppSettings["admin_auth"];
+        public static readonly string TrainerAuth = ConfigurationManager.AppSettings["trainer_auth"];
+        public static readonly string TraineeAuth = ConfigurationManager.AppSettings["trainee_auth"];
     }
 }
