@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace APITestApp
 {
-    internal class AppConfigReader
+    public static class AppConfigReader
     {
+        public static readonly string baseUrl = ConfigurationManager.AppSettings["base_url"];
+        public static readonly string adminUrl = ConfigurationManager.AppSettings["admin_url"];
+        public static readonly string loginUrl = ConfigurationManager.AppSettings["login_url"];
+        public static readonly string accessdeniedUrl = ConfigurationManager.AppSettings["accessdenied_url"];
+        public static readonly string coursesUrl = ConfigurationManager.AppSettings["courses_url"];
+        public static readonly string trackersUrl = ConfigurationManager.AppSettings["trackers_url"];
+        public static readonly string traineesUrl = ConfigurationManager.AppSettings["trainees_url"];
+        public static readonly string trainersUrl = ConfigurationManager.AppSettings["trainers_url"];
+        public static readonly string createUrl = ConfigurationManager.AppSettings["create_url"];
+        public static readonly string editUrl = ConfigurationManager.AppSettings["edit_url"];
+        public static readonly string detailsUrl = ConfigurationManager.AppSettings["details_url"];
+        public static readonly string deleteUrl = ConfigurationManager.AppSettings["delete_url"];
+        public static readonly string privacyUrl = ConfigurationManager.AppSettings["privacy_url"];
     }
 }
