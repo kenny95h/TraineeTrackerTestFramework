@@ -6,19 +6,16 @@ using TraineeTrackerFramework.lib.pages.Account;
 
 namespace TraineeTrackerFramework.lib;
 
-public class TT_Website
+public class TT_Website<T> where T : IWebDriver, new()
 {
-    public class AP_Website<T> where T : IWebDriver, new()
-    {
-        #region Accessible age Objects and Selenium Driver
-        public IWebDriver SeleniumDriver { get; set; }
-        public TT_LoginPage TT_LoginPage { get; set; }
-        #endregion
+    #region Accessible Page Objects and Selenium Driver
+    public IWebDriver SeleniumDriver { get; set; }
+    public TT_LoginPage TT_LoginPage { get; set; }
+    #endregion
 
-        public AP_Website(int pageLoadInsecs = 10, int implicitWaitInSecs = 10, bool isHeadless = false)
-        {
-            SeleniumDriver = new SeleniumDriverConfig<T>(pageLoadInsecs, implicitWaitInSecs, isHeadless).Driver;
-            TT_LoginPage = new TT_LoginPage(SeleniumDriver);
-        }
+    public TT_Website(int pageLoadInsecs = 10, int implicitWaitInSecs = 10, bool isHeadless = false)
+    {
+        SeleniumDriver = new SeleniumDriverConfig<T>(pageLoadInsecs, implicitWaitInSecs, isHeadless).Driver;
+        TT_LoginPage = new TT_LoginPage(SeleniumDriver);
     }
 }
