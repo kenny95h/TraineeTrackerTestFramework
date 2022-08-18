@@ -1,5 +1,6 @@
 ﻿namespace APITestApp.DataHandling
 {
+    
     public class Course : IResponse
     {
         public int id { get; set; }
