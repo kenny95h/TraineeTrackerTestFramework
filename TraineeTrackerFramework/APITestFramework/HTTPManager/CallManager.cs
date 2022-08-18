@@ -50,6 +50,49 @@ namespace APITestApp.HTTPManager
                     Response = await _client.ExecuteAsync(_request);
 
                     return (Response.Content, (int)Response.StatusCode);
+
+                case Resource.GetTracker:
+                    if (method == Method.Post)
+                    {
+                        string[] updateTracker = code.Split(','); ;
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{updateTracker[0]}";
+                        _request.AddJsonBody(new
+                        {
+                            stop = updateTracker[0],
+                            start = updateTracker[1],
+                            _continue = updateTracker[2],
+                            comment = updateTracker[3],
+                            technicalSkill = updateTracker[4],
+                            consultantSkill = updateTracker[5],
+                            trainee = updateTracker[6]
+                        });
+                    }
+                    else if (method == Method.Put)
+                    {
+                        string[] updateTracker = code.Split(','); ;
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{updateTracker[0]}";
+                        _request.AddJsonBody(new { 
+                            id = updateTracker[0], 
+                            stop = updateTracker[1],
+                            start = updateTracker[2],
+                            _continue = updateTracker[3],
+                            comment = updateTracker[4],
+                            technicalSkill = updateTracker[5],
+                            consultantSkill = updateTracker[6],
+                            trainee = updateTracker[7]
+                        });
+                    }
+                    else
+                    {
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{code}";
+                    }
+
+                    _request.Method = method;
+
+                    Response = await _client.ExecuteAsync(_request);
+
+                    return (Response.Content, (int)Response.StatusCode);
+
                 default:
                     throw new ArgumentException();
 
