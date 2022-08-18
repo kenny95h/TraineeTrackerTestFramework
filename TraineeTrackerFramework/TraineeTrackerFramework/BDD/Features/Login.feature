@@ -6,7 +6,7 @@ As a user, I want to be able to use my credentials, so that I can log in and out
 Scenario: Admin Login
 	Given I on the Login page
 	And I input valid admin credentials
-	When I press the login button
+	When I press the Login button
 	Then I should be taken to the Index page
 
 @HappyPath
@@ -14,7 +14,7 @@ Scenario: Trainer Login
 	Given I am on the Login page
 	And I input valid trainer credentials
 	When I press the Login button
-	Then I should be taken to the index page
+	Then I should be taken to the Index page
 
 @HappyPath
 Scenario: Trainee Login

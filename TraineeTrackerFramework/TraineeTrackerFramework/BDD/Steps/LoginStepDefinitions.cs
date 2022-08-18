@@ -18,7 +18,7 @@ namespace TraineeTrackerFramework.BDD.Steps
             throw new PendingStepException();
         }
 
-        [When(@"I press the login button")]
+        [When(@"I press the Login button")]
         public void WhenIPressTheLoginButton()
         {
             throw new PendingStepException();
