@@ -1,4 +1,4 @@
-﻿Feature: Edit Trainee
+Feature: Edit Trainee
 
 Admin and trainer can update trainee details
 
