@@ -28,7 +28,7 @@ namespace APITestFramework.Services
 
         public async Task MakeRequestAsync(string tracker, string auth)
         {
-            Response = await CallManager.MakeRequestAsync(auth, Resource.GetTracker, tracker, Method.Get);
+            Response = await CallManager.MakeRequestAsync(auth, Resource.Trackers, tracker, Method.Get);
 
             Json_Response = JObject.Parse(Response);
 
@@ -37,7 +37,7 @@ namespace APITestFramework.Services
 
         public async Task CreateRequestAsync(string tracker, string auth)
         {
-            Response = await CallManager.MakeRequestAsync(auth, Resource.GetTracker, tracker, Method.Post);
+            Response = await CallManager.MakeRequestAsync(auth, Resource.Trackers, tracker, Method.Post);
 
             Json_Response = JObject.Parse(Response);
 
@@ -46,7 +46,7 @@ namespace APITestFramework.Services
 
         public async Task UpdateRequestAsync(string tracker, string auth)
         {
-            Response = await CallManager.MakeRequestAsync(auth, Resource.GetTracker, tracker, Method.Put);
+            Response = await CallManager.MakeRequestAsync(auth, Resource.Trackers, tracker, Method.Put);
 
             //Response only returns true/false - Cannot convert
 
