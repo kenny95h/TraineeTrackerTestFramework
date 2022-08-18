@@ -1,9 +1,4 @@
 ﻿using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace APITestApp.HTTPManager
 {
@@ -28,17 +23,61 @@ namespace APITestApp.HTTPManager
             switch (resource)
             {
                 case Resource.Trainers:
-                    if(method == Method.Post)
+                    if (method == Method.Post)
                     {
                         string[] trainer = code.Split(','); ;
                         _request.Resource = $"{AppConfigReader.baseUrl}{resource}";
-                        _request.AddJsonBody(new { firstname = trainer[0], lastname= trainer[1], title = trainer[2], email = trainer[3], permissionrole = trainer[4] });
+                        _request.AddJsonBody(new { firstname = trainer[0], lastname = trainer[1], title = trainer[2], email = trainer[3], permissionrole = trainer[4] });
                     }
-                    else if(method == Method.Put)
+                    else if (method == Method.Put)
                     {
                         string[] updateTrainer = code.Split(','); ;
                         _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{updateTrainer[0]}";
                         _request.AddJsonBody(new { id = updateTrainer[0], firstname = updateTrainer[1], lastname = updateTrainer[2], title = updateTrainer[3], email = updateTrainer[4], permissionrole = updateTrainer[5] });
+                    }
+                    else
+                    {
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{code}";
+                    }
+
+                    _request.Method = method;
+
+                    Response = await _client.ExecuteAsync(_request);
+
+                    return Response.Content;
+
+                case Resource.Trackers:
+
+                    if (method == Method.Post)
+                    {
+                        string[] updateTracker = code.Split(','); ;
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{updateTracker[0]}";
+                        _request.AddJsonBody(new
+                        {
+                            stop = updateTracker[0],
+                            start = updateTracker[1],
+                            _continue = updateTracker[2],
+                            comment = updateTracker[3],
+                            technicalSkill = updateTracker[4],
+                            consultantSkill = updateTracker[5],
+                            trainee = updateTracker[6]
+                        });
+                    }
+                    else if (method == Method.Put)
+                    {
+                        string[] updateTracker = code.Split(','); ;
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{updateTracker[0]}";
+                        _request.AddJsonBody(new
+                        {
+                            id = updateTracker[0],
+                            stop = updateTracker[1],
+                            start = updateTracker[2],
+                            _continue = updateTracker[3],
+                            comment = updateTracker[4],
+                            technicalSkill = updateTracker[5],
+                            consultantSkill = updateTracker[6],
+                            trainee = updateTracker[7]
+                        });
                     }
                     else
                     {
@@ -62,6 +101,23 @@ namespace APITestApp.HTTPManager
                     }
                     _request.Method = method;
                     Response = await _client.ExecuteAsync(_request);
+                    return Response.Content;
+
+                case Resource.Courses:
+                    if (method == Method.Post)
+                    {
+                        string[] course = code.Split(','); ;
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}";
+                        _request.AddJsonBody(new { name = course[0], startdate = course[1], weekslong = course[2], trainer = new { firstname = course[3], lastname = course[4], title = course[5], email = course[6], permissionrole = course[7] } });
+                    }
+                    else
+                    {
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{code}";
+                    }
+                    _request.Method = method;
+
+                    Response = await _client.ExecuteAsync(_request);
+
                     return Response.Content;
 
                 default:

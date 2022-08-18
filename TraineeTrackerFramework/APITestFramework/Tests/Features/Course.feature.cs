@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace TraineeTrackerFramework.BDD.Features
+namespace APITestFramework.Tests.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,22 +20,22 @@ namespace TraineeTrackerFramework.BDD.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Edit Trainee")]
-    public partial class EditTraineeFeature
+    [NUnit.Framework.DescriptionAttribute("Course")]
+    public partial class CourseFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "EditTrainee.feature"
+#line 1 "Course.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BDD/Features", "Edit Trainee", "Admin and trainer can update trainee details", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Tests/Features", "Course", "Course CRUD functionality", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,14 +74,14 @@ namespace TraineeTrackerFramework.BDD.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Editing Trainee as a Admin")]
+        [NUnit.Framework.DescriptionAttribute("Get Course with a valid endpoint")]
         [NUnit.Framework.CategoryAttribute("HappyPath")]
-        public void EditingTraineeAsAAdmin()
+        public void GetCourseWithAValidEndpoint()
         {
             string[] tagsOfScenario = new string[] {
                     "HappyPath"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Editing Trainee as a Admin", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Course with a valid endpoint", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -93,31 +93,28 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.Given("I am logged in as a admin", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have setup a request with \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- testRunner.And("when I click on edit button for a trainee", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I execute the GET Course request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
- testRunner.When("I change the trainee details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 10
- testRunner.Then("the details are updated in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I should receive a status code of 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Editing Trainee as a Trainer")]
-        [NUnit.Framework.CategoryAttribute("HappyPath")]
-        public void EditingTraineeAsATrainer()
+        [NUnit.Framework.DescriptionAttribute("Get Course with an invalid endpoint")]
+        [NUnit.Framework.CategoryAttribute("SadPath")]
+        public void GetCourseWithAnInvalidEndpoint()
         {
             string[] tagsOfScenario = new string[] {
-                    "HappyPath"};
+                    "SadPath"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Editing Trainee as a Trainer", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 13
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Course with an invalid endpoint", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -127,17 +124,49 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 13
+testRunner.Given("I have setup a request with \"cheesegromit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 14
- testRunner.Given("I am logged in as a trainer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.When("I execute the GET Course request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 15
- testRunner.And("when I click on edit button for a trainee", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("I should receive a status code of 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 16
- testRunner.When("I change the trainee details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Delete course")]
+        [NUnit.Framework.CategoryAttribute("HappyPath")]
+        public void DeleteCourse()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "HappyPath"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete course", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 18
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
-#line 17
- testRunner.Then("the details are updated in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 19
+testRunner.Given("I am an admin", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 20
+testRunner.And("I have setup a request with \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 21
+testRunner.When("I execute the the DELETE Course request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 22
+testRunner.Then("the course is no longer available in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
