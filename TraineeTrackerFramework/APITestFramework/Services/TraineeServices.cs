@@ -29,5 +29,10 @@ namespace APITestFramework.Services
 
             TraineeResponseDTO.DeserializeResponse(Response);
         }
+        public int GetStatus()
+        {
+            return (int)CallManager.Response.StatusCode;
+        }
+
     }
 }
