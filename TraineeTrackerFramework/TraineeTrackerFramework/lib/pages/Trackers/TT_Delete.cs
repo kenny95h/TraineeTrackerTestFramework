@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TraineeTrackerFramework.lib.pages.Trackers
 {
-    internal class TT_Delete
+    public class TT_Delete
     {
+
     }
 }
