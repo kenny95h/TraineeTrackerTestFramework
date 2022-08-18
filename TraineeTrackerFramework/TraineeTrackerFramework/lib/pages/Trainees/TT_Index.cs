@@ -13,7 +13,7 @@ public class TT_Index
     private string _traineesDetailsURL = AppConfigReader.TraineesIndexURL;
 
     #region Properties and Fields
-    private IWebElement _spartaLogo => _seleniumDriver.FindElement(By.XPath("//img[@src='/assets/sparta-logo.png']"));
+    private IWebElement _spartaLogo => _seleniumDriver.FindElement(By.Id("logo_img"));
     private IWebElement _pageTitleHeader => _seleniumDriver.FindElement(By.ClassName("h1"));
     private IWebElement _createNewTraineeLink => _seleniumDriver.FindElement(By.Id("CreateLink"));
     private IWebElement _searchFilter => _seleniumDriver.FindElement(By.Id("SearchString"));
@@ -30,10 +30,10 @@ public class TT_Index
     private List<IWebElement> _consultantSkills => _seleniumDriver.FindElement(By.ClassName("table")).FindElements(By.TagName("tr")).ToArray()[8].FindElements(By.TagName("td")).ToList();
     private List<IWebElement> _technicalSkills => _seleniumDriver.FindElement(By.ClassName("table")).FindElements(By.TagName("tr")).ToArray()[9].FindElements(By.TagName("td")).ToList();
     private Dictionary<string, Dictionary<string, IWebElement>> _traineeDict;
-    private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.XPath("//a[@href='/Privacy']"));
+    private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.Id("privacy_link"));
     #endregion
 
-    public TT_Index(WebDriver SeleniumDriver)
+    public TT_Index(IWebDriver SeleniumDriver)
     {
         _seleniumDriver = SeleniumDriver;
         _traineeDict = new Dictionary<string, Dictionary<string, IWebElement>>();

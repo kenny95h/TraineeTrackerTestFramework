@@ -46,7 +46,7 @@ namespace APITestApp.HTTPManager
 
                     return Response.Content;
 
-                case Resource.GetTracker:
+                case Resource.Trackers:
                     if (method == Method.Post)
                     {
                         string[] updateTracker = code.Split(','); ;
@@ -89,9 +89,22 @@ namespace APITestApp.HTTPManager
 
                     return Response.Content;
 
+
+                case Resource.Trainees:
+                    if (method == Method.Get)
+                    {
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{code}";
+                    }
+                    else if (method == Method.Delete)
+                    {
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{code}";
+                    }
+                    _request.Method = method;
+                    Response = await _client.ExecuteAsync(_request);
+                    return Response.Content;
+
                 default:
                     throw new ArgumentException();
-
             }
         }
     }
