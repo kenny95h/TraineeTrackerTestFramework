@@ -64,6 +64,23 @@ namespace APITestApp.HTTPManager
                     Response = await _client.ExecuteAsync(_request);
                     return Response.Content;
 
+                case Resource.Courses:
+                    if (method == Method.Post)
+                    {
+                        string[] course = code.Split(','); ;
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}";
+                        _request.AddJsonBody(new { name = course[0], startdate = course[1], weekslong = course[2], trainer = new { firstname = course[3], lastname = course[4], title = course[5], email = course[6], permissionrole = course[7] } });
+                    }
+                    else
+                    {
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{code}";
+                    }
+                    _request.Method = method;
+
+                    Response = await _client.ExecuteAsync(_request);
+
+                    return Response.Content;
+
                 default:
                     throw new ArgumentException();
             }

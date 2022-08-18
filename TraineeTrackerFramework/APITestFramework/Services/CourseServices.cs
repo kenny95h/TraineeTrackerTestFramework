@@ -21,6 +21,12 @@ namespace APITestFramework.Services
 
         public int status;
 
+        public CourseServices()
+        {
+            CallManager = new CallManager();
+            CourseResponseDTO = new DTO<Course>();
+        }
+
         public CourseServices(IService service)
         {
             CallManager = new CallManager();
@@ -34,11 +40,19 @@ namespace APITestFramework.Services
             SelectedCourse = selectedCourse;
         }
 
-        public async Task MakeRequestAsync(string trainee)
+        public async Task CreateRequestAsync(string course, string auth)
         {
+            Response = await CallManager.MakeRequestAsync(auth, Resource.Courses, course, Method.Post);
             Json_Response = JObject.Parse(Response);
-
             CourseResponseDTO.DeserializeResponse(Response);
+        }
+
+        public async Task DeleteRequestAsync(string course, string auth)
+        {
+            Response = await CallManager.MakeRequestAsync(auth, Resource.Courses, course, Method.Delete);
+            //No content is returned
+            //Json_Response = JObject.Parse(Response);
+            //CourseResponseDTO.DeserializeResponse(Response);
         }
         public int GetStatus()
         {
