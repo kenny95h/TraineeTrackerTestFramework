@@ -1,6 +1,6 @@
 ﻿namespace APITestApp.HTTPManager
 {
-    public enum Resource // THESE ARE WRONG!!!
+    public enum Resource
     {
         Trainees,
         Trainers,
