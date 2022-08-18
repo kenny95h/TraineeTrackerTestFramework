@@ -5,28 +5,26 @@ using RestSharp;
 
 namespace APITestFramework.Services
 {
-    public class TraineeServices
+    public class CourseServices
     {
         public CallManager CallManager { get; set; }
         public JObject Json_Response { get; set; }
-        public DTO<TraineeResponse> TraineeResponseDTO { get; set; }
+        public DTO<Course> CourseResponseDTO { get; set; }
         public string Response { get; set; }
 
         public int status;
 
-        public TraineeServices()
+        public CourseServices()
         {
             CallManager = new CallManager();
-            TraineeResponseDTO = new DTO<TraineeResponse>();
+            CourseResponseDTO = new DTO<Course>();
         }
 
         public async Task MakeRequestAsync(string trainee)
         {
-            //(TraineeResponse, status) = await CallManager.MakeRequestAsync(Resource.GetTrainee, trainee, Method.Post); // Will not work. MakeRequestAsync needs uncommenting
-
             Json_Response = JObject.Parse(Response);
 
-            TraineeResponseDTO.DeserializeResponse(Response);
+            CourseResponseDTO.DeserializeResponse(Response);
         }
         public int GetStatus()
         {
