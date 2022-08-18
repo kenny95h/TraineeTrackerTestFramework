@@ -1,4 +1,4 @@
-﻿Feature: CourseFeature
+﻿Feature: Course
 
 Course CRUD functionality
 
@@ -17,6 +17,6 @@ Then I should receive a status code of 400
 @HappyPath
 Scenario: Delete course
 Given I am an admin
-And I have setup a request with ""
+And I have setup a request with "1"
 When I execute the the DELETE Course request
 Then the course is no longer available in the database

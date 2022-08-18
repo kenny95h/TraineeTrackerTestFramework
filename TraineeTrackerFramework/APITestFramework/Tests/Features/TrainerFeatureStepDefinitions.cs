@@ -5,39 +5,27 @@ using APITestFramework.Services;
 using APITestApp;  
 namespace APITestFramework.Tests.Features;
 
-[Binding]
-public class TrainerFeatureStepDefinitions
+[Binding, Scope(Feature = "Trainer")]
+public class TrainerFeatureStepDefinitions : SharedStepDefinitions
 {
     ScenarioContext _scenarioContext;
     private TrainerServices _trainerService;
     private TrainerResponse _trainer;
-    private string _endpoint;
-    private string _auth;
+
     public TrainerFeatureStepDefinitions(ScenarioContext scenarioContext)
     {
         this._scenarioContext = scenarioContext;
         this._trainerService = new TrainerServices();
-        this._auth = "";
+        Auth = "";
     }
 
-    [Given(@"I am an admin")]
-    public void GivenIAmAnAdmin()
-    {
-        this._auth = AppConfigReader.AdminAuth;
-    }
-
-    [Given(@"I have setup a request with ""([^""]*)""")]
-    public void GivenIHaveSetupARequestWith(string endpoint)
-    {
-        this._endpoint = endpoint;
-    }
 
     [When(@"I execute the CREATE Trainer request")]
     public async Task WhenIExecuteTheCreateTrainerRequest()
     {
         try
         {
-            await _trainerService.CreateRequestAsync(_endpoint, _auth);
+            await _trainerService.CreateRequestAsync(Endpoint, Auth);
         }
         catch
         {
@@ -50,7 +38,7 @@ public class TrainerFeatureStepDefinitions
     {
         try
         {
-            await _trainerService.MakeRequestAsync(_endpoint, _auth);
+            await _trainerService.MakeRequestAsync(Endpoint, Auth);
             _trainer = _trainerService.TrainerResponseDTO.Response;
         }
         catch
@@ -64,7 +52,7 @@ public class TrainerFeatureStepDefinitions
     {
         try
         {
-            await _trainerService.UpdateRequestAsync(_endpoint, _auth);
+            await _trainerService.UpdateRequestAsync(Endpoint, Auth);
             _trainer = _trainerService.TrainerResponseDTO.Response;
         }
         catch

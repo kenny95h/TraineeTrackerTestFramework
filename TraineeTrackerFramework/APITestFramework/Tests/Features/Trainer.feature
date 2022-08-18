@@ -1,4 +1,4 @@
-﻿Feature: TrainerFeature
+﻿Feature: Trainer
 
 Trainer CRUD functionality
 
