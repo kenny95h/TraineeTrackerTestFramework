@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace APITestFramework.Tests
 {
-    public class TrainerTests
+    public class WhenTheTrainerServiceIsCalled_WithAValidTrainerToAdd
     {
         readonly TrainerServices _trainerServices = new TrainerServices();
 
         [OneTimeSetUp]
         public async Task OneTimeSetUpAsync()
         {
-            await _trainerServices.MakeRequestAsync("1",AppConfigReader.AdminAuth);
+            await _trainerServices.CreateRequestAsync("firstName:Thomas,lastName:Wolstencroft,title:Mr.,email:twolse@spartaglobal.com,permissionRole:Trainer", AppConfigReader.AdminAuth);
         }
 
         [Test]
         public void NameOfTrainer_IsAllIWant()
         {
-            Assert.That(_trainerServices.TrainerResponseDTO.Response.firstName, Is.EqualTo("Cathy"));
+            Assert.That(_trainerServices.TrainerResponseDTO.Response.firstName, Is.EqualTo("Thomas"));
         }
     }
 }

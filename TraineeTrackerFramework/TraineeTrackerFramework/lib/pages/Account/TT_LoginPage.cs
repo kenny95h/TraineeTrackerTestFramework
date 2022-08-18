@@ -11,7 +11,7 @@ public class TT_LoginPage
 {
     #region Properties and Fields
     private IWebDriver _seleniumDriver;
-    private string _loginPageURL = AppConfigReader.LoginURL;
+    private string _loginPageURL = AppConfigReader.AccountLoginURL;
     private IWebElement _usernameField => _seleniumDriver.FindElement(By.Id("Credential_UserName"));
     private IWebElement _passwordField => _seleniumDriver.FindElement(By.Id("Credential_Password"));
     private IWebElement _loginButton => _seleniumDriver.FindElement(By.Id("submit_button"));
