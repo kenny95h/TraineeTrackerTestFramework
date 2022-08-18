@@ -20,7 +20,7 @@ namespace TraineeTrackerFramework.BDD.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("EditTrainee")]
+    [NUnit.Framework.DescriptionAttribute("Edit Trainee")]
     public partial class EditTraineeFeature
     {
         
@@ -35,7 +35,7 @@ namespace TraineeTrackerFramework.BDD.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BDD/Features", "EditTrainee", "Gherkin Scripts for editing trainee, two based on priveledge level.", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BDD/Features", "Edit Trainee", "Admin and trainer can update trainee details", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -103,7 +103,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 10
  testRunner.Then("the details are updated in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-
 #line hidden
             }
             this.ScenarioCleanup();
