@@ -42,5 +42,16 @@ namespace APITestFramework.Services
 
             TrainerResponseDTO.DeserializeResponse(Response);
         }
+
+        public async Task UpdateRequestAsync(string trainer, string auth)
+        {
+            (Response, status) = await CallManager.MakeRequestAsync(auth, Resource.Trainers, trainer, Method.Put);
+
+            //Response only returns true/false - Cannot convert
+
+            //Json_Response = JObject.Parse(Response);
+
+            //TrainerResponseDTO.DeserializeResponse(Response);
+        }
     }
 }
