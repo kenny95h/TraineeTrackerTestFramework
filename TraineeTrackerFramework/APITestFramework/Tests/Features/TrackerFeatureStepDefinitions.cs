@@ -15,7 +15,7 @@ public class TrackerFeatureStepDefinitions : SharedStepDefinitions
     public TrackerFeatureStepDefinitions(ScenarioContext scenarioContext)
     {
         this._scenarioContext = scenarioContext;
-        //this._trackerService = new TrackerServices();
+        this._trackerService = new TrackerServices(null);
         Auth = "";
     }
 
@@ -24,7 +24,7 @@ public class TrackerFeatureStepDefinitions : SharedStepDefinitions
     {
         try
         {
-            //await _trackerService.MakeRequestAsync(Endpoint);
+            await _trackerService.MakeRequestAsync(Endpoint, Auth);
             _tracker = _trackerService.TrackerResponseDTO.Response;
         }
         catch

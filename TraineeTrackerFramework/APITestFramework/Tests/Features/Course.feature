@@ -2,6 +2,18 @@
 
 Course CRUD functionality
 
+#@HappyPath
+#Scenario: Get Course with a valid endpoint
+#Given I have setup a request with "1"
+#When I execute the GET Course request
+#Then I should receive a status code of 200 
+
+#@SadPath
+#Scenario: Get Course with an invalid endpoint
+#Given I have setup a request with "cheesegromit"
+#When I execute the GET Course request
+#Then I should receive a status code of 400
+
 @HappyPath
 Scenario: Delete course
 Given I am an admin
@@ -22,6 +34,7 @@ Given I am a trainer
 And I have setup a request with "Engineering121,2022-08-18T00:00:00,8,Charlie,Batten,Mr.,cb@spartaglobal.com,Trainer"
 When I execute the CREATE Course request
 Then I am returned a status code 403
+
 
 @SadPath
 Scenario: Create course as admin with empty field

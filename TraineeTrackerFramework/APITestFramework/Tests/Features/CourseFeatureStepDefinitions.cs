@@ -20,8 +20,10 @@ public class CourseFeatureStepDefinitions : SharedStepDefinitions
     }
 
 
+
     [When(@"I execute the the DELETE Course request")]
     public async Task WhenIExecuteTheTheDELETECourseRequest()
+
     {
         try
         {
@@ -44,7 +46,7 @@ public class CourseFeatureStepDefinitions : SharedStepDefinitions
         {
             _exception = ex;
         }
-    }
+    }*/
 
 
     [Then(@"the name of the course ""([^""]*)"" is available in the database")]

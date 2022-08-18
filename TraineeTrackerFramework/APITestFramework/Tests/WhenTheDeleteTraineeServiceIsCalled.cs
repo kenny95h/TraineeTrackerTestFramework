@@ -1,4 +1,5 @@
-﻿using APITestFramework.Services;
+﻿using APITestApp;
+using APITestFramework.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,14 @@ namespace APITestFramework.Tests
         [OneTimeSetUp]
         public async Task OneTimeSetUpAsync()
         {
-            //await _traineeServices.MakeRequestAsync()
+            await _traineeServices.DeleteRequestAsync("13", AppConfigReader.AdminAuth);
+        }
+
+        [Test]
+        public async Task WhenTheDeleteTraineeServiceIsCalled_ExpectedTraineeIsReturnedAsync()
+        {
+            await _traineeServices.MakeRequestAsync("13", AppConfigReader.AdminAuth);
+            Assert.That(_traineeServices.GetStatus, Is.EqualTo(404));
         }
     }
 }
