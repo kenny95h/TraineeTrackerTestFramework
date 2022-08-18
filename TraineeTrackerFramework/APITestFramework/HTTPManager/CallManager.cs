@@ -12,7 +12,6 @@ namespace APITestApp.HTTPManager
         private readonly RestClient _client;
 
         private RestRequest _request;
-
         public RestResponse Response { get; set; }
 
         public CallManager()
@@ -29,7 +28,7 @@ namespace APITestApp.HTTPManager
             switch (resource)
             {
                 case Resource.Trainers:
-                    _request.Resource = $"{AppConfigReader.baseUrl}{resource}/code";
+                    _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{code}";
 
                     _request.Method = method;
 
