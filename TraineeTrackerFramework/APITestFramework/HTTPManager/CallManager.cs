@@ -1,9 +1,4 @@
 ﻿using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace APITestApp.HTTPManager
 {
@@ -22,19 +17,19 @@ namespace APITestApp.HTTPManager
             _request.AddHeader("Content-Type", "application/json");
         }
 
-        public async Task<(string, int)> MakeRequestAsync(string auth, Resource resource, string code, Method method)
+        public async Task<string> MakeRequestAsync(string auth, Resource resource, string code, Method method)
         {
             _request.AddHeader("Authorization", auth);
             switch (resource)
             {
                 case Resource.Trainers:
-                    if(method == Method.Post)
+                    if (method == Method.Post)
                     {
                         string[] trainer = code.Split(','); ;
                         _request.Resource = $"{AppConfigReader.baseUrl}{resource}";
-                        _request.AddJsonBody(new { firstname = trainer[0], lastname= trainer[1], title = trainer[2], email = trainer[3], permissionrole = trainer[4] });
+                        _request.AddJsonBody(new { firstname = trainer[0], lastname = trainer[1], title = trainer[2], email = trainer[3], permissionrole = trainer[4] });
                     }
-                    else if(method == Method.Put)
+                    else if (method == Method.Put)
                     {
                         string[] updateTrainer = code.Split(','); ;
                         _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{updateTrainer[0]}";
@@ -49,7 +44,7 @@ namespace APITestApp.HTTPManager
 
                     Response = await _client.ExecuteAsync(_request);
 
-                    return (Response.Content, (int)Response.StatusCode);
+                    return Response.Content;
 
                 case Resource.GetTracker:
                     if (method == Method.Post)
@@ -71,8 +66,9 @@ namespace APITestApp.HTTPManager
                     {
                         string[] updateTracker = code.Split(','); ;
                         _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{updateTracker[0]}";
-                        _request.AddJsonBody(new { 
-                            id = updateTracker[0], 
+                        _request.AddJsonBody(new
+                        {
+                            id = updateTracker[0],
                             stop = updateTracker[1],
                             start = updateTracker[2],
                             _continue = updateTracker[3],
@@ -91,7 +87,7 @@ namespace APITestApp.HTTPManager
 
                     Response = await _client.ExecuteAsync(_request);
 
-                    return (Response.Content, (int)Response.StatusCode);
+                    return Response.Content;
 
                 default:
                     throw new ArgumentException();

@@ -19,9 +19,15 @@ namespace APITestFramework.Tests
         }
 
         [Test]
-        public void NameOfTrainer_IsTommy()
+        public void StatusCode_Is200()
         {
-            Assert.That(_trainerServices.Response.Equals(true));
+            Assert.That(_trainerServices.GetStatus(), Is.EqualTo(200));
+        }
+
+        [Test]
+        public void Update_IsTrue()
+        {
+            Assert.That(_trainerServices.Response, Is.EqualTo("true"));
         }
     }
 }
