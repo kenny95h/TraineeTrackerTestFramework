@@ -1,18 +1,17 @@
-﻿Feature: EditTrainee
+Feature: Edit Trainee
 
-Gherkin Scripts for editing trainee, two based on priveledge level.
+Admin and trainer can update trainee details
 
-@tag1
-Scenario: Admin Edit Trainee
-	Given I am logged in as an admin
-	And I am on the index page
-	When I press edit link
-	Then I should be taken to the edit trainee page
+@HappyPath
+Scenario: Editing Trainee as a Admin
+	Given I am logged in as a admin
+	And when I click on edit button for a trainee
+	When I change the trainee details
+	Then the details are updated in the database
 
-Scenario: Trainer Edit Trainee
+@HappyPath
+Scenario: Editing Trainee as a Trainer
 	Given I am logged in as a trainer
-	And I am on the index page
-	When I press edit link
-	Then I should be taken to the edit trainee page
-
-
+	And when I click on edit button for a trainee
+	When I change the trainee details
+	Then the details are updated in the database
