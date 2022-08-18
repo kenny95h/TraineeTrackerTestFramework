@@ -1,4 +1,6 @@
-﻿
+﻿using TraineeTrackerFramework.lib;
+using TraineeTrackerFramework.lib.pages.Account;
+
 namespace TraineeTrackerFramework;
 
 public class Program
