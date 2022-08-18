@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace APITestApp.HTTPManager
+﻿namespace APITestApp.HTTPManager
 {
-    internal class Resource
+    public enum Resource // THESE ARE WRONG!!!
     {
+        GetTrainee,
+        GetTrainer,
+        GetCourse,
+        GetTracker
     }
+
+    //public enum Resource
+    //{
+    //    gettrack,
+    //    playlists,
+    //    playlisttracks,
+    //    gettracks,
+    //    tracks
+    //}
 }

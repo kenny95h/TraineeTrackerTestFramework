@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace APITestApp.DataHandling
 {
-    internal class DTO
+    public class DTO<ResponseType> where ResponseType : IResponse, new()
     {
+        public ResponseType Response { get; set; }
+
+        public void DeserializeResponse(string response)
+        {
+            Response = JsonConvert.DeserializeObject<ResponseType>(response);
+        }
     }
 }
