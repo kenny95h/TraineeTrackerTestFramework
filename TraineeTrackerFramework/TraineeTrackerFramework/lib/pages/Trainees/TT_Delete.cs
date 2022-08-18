@@ -26,7 +26,7 @@ public class TT_Delete
     private IWebElement _profileLink => _seleniumDriver.FindElement(By.XPath("//dt[text()='Profile Link']/following-sibling::dd"));
     private IWebElement _deleteButton => _seleniumDriver.FindElement(By.ClassName("btn btn-danger"));
     private IWebElement _backToListLink => _seleniumDriver.FindElement(By.XPath("//a[@href='/Trainees']"));
-    private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.XPath("//a[@href='/Privacy']"));
+    private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.Id("privacy_link"));
     #endregion
 
     public TT_Delete(IWebDriver SeleniumDriver) => _seleniumDriver = SeleniumDriver;
