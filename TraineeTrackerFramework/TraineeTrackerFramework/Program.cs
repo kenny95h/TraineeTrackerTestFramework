@@ -7,7 +7,6 @@ public class Program
 {
     static void Main(string[] args)
     {
-        TT_Website web = new TT_Website();
         
     }
 }
