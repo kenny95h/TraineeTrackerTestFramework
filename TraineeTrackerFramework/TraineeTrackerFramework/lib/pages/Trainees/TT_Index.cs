@@ -38,23 +38,23 @@ public class TT_Index
         _seleniumDriver = SeleniumDriver;
         _traineeDict = new Dictionary<string, Dictionary<string, IWebElement>>();
 
-        for (int i = 0; i < _emailAddresses.Count; i++)
-        {
-            _traineeDict.Add(_emailAddresses[i].Text, new Dictionary<string, IWebElement>()
-            {
-                {"first_name", _firstNames[i] },
-                {"last_name", _lastNames[i] },
-                {"last_name", _traineeTitles[i] },
-                {"contact_number", _contactNumbers[i] },
-                {"permission_role", _permissionRoles[i] },
-                {"profile_link", _profileLinks[i] },
-                {"tracker_edit", _trackers[i].FindElement(By.XPath($"//a[@href='/Trainees/Edit?id={i}']")) },
-                {"tracker_details", _trackers[i].FindElement(By.XPath($"//a[@href='/Trainees/Details?id={i}']")) },
-                {"tracker_delete", _trackers[i].FindElement(By.XPath($"//a[@href='/Trainees/Delete?id={i}']")) },
-                {"consultant_skills", _consultantSkills[i] },
-                {"technical_skills", _technicalSkills[i] }
-            });
-        }
+        //for (int i = 0; i < _emailAddresses.Count; i++)
+        //{
+        //    _traineeDict.Add(_emailAddresses[i].Text, new Dictionary<string, IWebElement>()
+        //    {
+        //        {"first_name", _firstNames[i] },
+        //        {"last_name", _lastNames[i] },
+        //        {"last_name", _traineeTitles[i] },
+        //        {"contact_number", _contactNumbers[i] },
+        //        {"permission_role", _permissionRoles[i] },
+        //        {"profile_link", _profileLinks[i] },
+        //        {"tracker_edit", _trackers[i].FindElement(By.XPath($"//a[@href='/Trainees/Edit?id={i}']")) },
+        //        {"tracker_details", _trackers[i].FindElement(By.XPath($"//a[@href='/Trainees/Details?id={i}']")) },
+        //        {"tracker_delete", _trackers[i].FindElement(By.XPath($"//a[@href='/Trainees/Delete?id={i}']")) },
+        //        {"consultant_skills", _consultantSkills[i] },
+        //        {"technical_skills", _technicalSkills[i] }
+        //    });
+        //}
     }
 
     #region Methods
