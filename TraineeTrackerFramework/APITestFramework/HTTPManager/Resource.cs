@@ -3,7 +3,7 @@
     public enum Resource // THESE ARE WRONG!!!
     {
         GetTrainee,
-        GetTrainer,
+        Trainers,
         GetCourse,
         GetTracker
     }

@@ -6,11 +6,11 @@
         public string name { get; set; }
         public DateTime startDate { get; set; }
         public int weeksLong { get; set; }
-        public Trainer trainer { get; set; }
+        public TrainerResponse trainer { get; set; }
         public TraineeResponse[] trainees { get; set; }
     }
 
-    public class Trainer : IResponse
+    public class TrainerResponse : IResponse
     {
         public int id { get; set; }
         public string firstName { get; set; }
