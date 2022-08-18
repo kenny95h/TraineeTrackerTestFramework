@@ -26,7 +26,7 @@ public class TT_Edit
     private IWebElement _profileLink => _seleniumDriver.FindElement(By.Id("Trainee_ProfileLink"));
     private IWebElement _saveButton => _seleniumDriver.FindElement(By.ClassName("btn btn-primary"));
     private IWebElement _backToListLink => _seleniumDriver.FindElement(By.XPath($"//a[@href='User/{_traineeID}/Dashboard']"));
-    private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.XPath("//a[@href='/Privacy']"));
+    private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.Id("privacy_link"));
     #endregion
 
     public TT_Edit(WebDriver SeleniumDriver) => _seleniumDriver = SeleniumDriver;
