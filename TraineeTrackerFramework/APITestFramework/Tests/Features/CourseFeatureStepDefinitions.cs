@@ -19,7 +19,7 @@ public class CourseFeatureStepDefinitions : SharedStepDefinitions
     }
 
 
-    [When(@"I execute the GET Course request")]
+    /*[When(@"I execute the GET Course request")]
     public async Task WhenIExecuteTheGetCourseRequest()
     {
         try
@@ -31,7 +31,7 @@ public class CourseFeatureStepDefinitions : SharedStepDefinitions
         {
 
         }
-    }
+    }*/
 
     [Then(@"I should receive a status code of (.*)")]
     public void ThenIShouldReceiveAStatusCodeOf(int expectedStatus)
@@ -39,17 +39,22 @@ public class CourseFeatureStepDefinitions : SharedStepDefinitions
         Assert.That(_courseService.GetStatus(), Is.EqualTo(expectedStatus));
     }
 
-    [When(@"I execute the the DELETE Course request")]
-    public void WhenIExecuteTheTheDeleteCourseRequest()
+    [When(@"I execute the CREATE Course request")]
+    public async Task WhenIExecuteTheCreateCourseRequest()
     {
-        throw new PendingStepException();
-        //Waiting for course service to be finished
+        await _courseService.CreateRequestAsync(Endpoint, Auth);
+    }
+
+    [When(@"I execute the the DELETE Course request")]
+    public async Task WhenIExecuteTheTheDeleteCourseRequest()
+    {
+        await _courseService.DeleteRequestAsync(Endpoint, Auth);
     }
 
     [Then(@"the course is no longer available in the database")]
     public void ThenTheCourseIsNoLongerAvailableInTheDatabase()
     {
-        Assert.That(() => _courseService.MakeRequestAsync(Endpoint), Throws.Exception);
+        //Assert.That(() => _courseService.MakeRequestAsync(Endpoint), Throws.Exception);
     }
 
 }
