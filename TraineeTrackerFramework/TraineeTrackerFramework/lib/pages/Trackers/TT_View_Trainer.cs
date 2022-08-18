@@ -6,8 +6,9 @@ namespace TraineeTrackerFramework.lib.pages.Trackers
     {
         #region Properties and Fields
         private IWebDriver _seleniumDriver;
-        private IWebElement _fullName => _seleniumDriver.FindElement(By.ClassName("col-sm-9"));
-        private IWebElement _email => _seleniumDriver.FindElement(By.TagName("col-sm-9"));
+        private IWebElement _fullName => _seleniumDriver.FindElement(By.Id("trainer-full-name"));
+        private IWebElement _email => _seleniumDriver.FindElement(By.Id("trainer-email"));
+        private IWebElement _contactNumber=> _seleniumDriver.FindElement(By.Id("trainer-contact-number"));
 
 
         #endregion
@@ -15,8 +16,9 @@ namespace TraineeTrackerFramework.lib.pages.Trackers
         public TT_View_Trainer(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
 
         #region Methods
-        public void GetFullName() => _fullName.Displayed.ToString();
-        public void GetEmail() => _email.Displayed.ToString();
+        public void GetFullName() => _fullName.ToString();
+        public void GetEmail() => _email.ToString();
+        public void GetContactNumber() => _contactNumber.ToString();
         #endregion
 
     }
