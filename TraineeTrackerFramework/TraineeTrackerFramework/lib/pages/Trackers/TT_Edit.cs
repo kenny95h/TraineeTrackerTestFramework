@@ -20,12 +20,12 @@ namespace TraineeTrackerFramework.lib.pages.Trackers
         private IWebElement _commentField => _seleniumDriver.FindElement(By.Id("Tracker_Comment"));
         private IWebElement _saveButton => _seleniumDriver.FindElement(By.Id(""));
         private IWebElement _backToListLink => _seleniumDriver.FindElement(By.Id(""));
-        private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.Id(""));
-        private IWebElement _spartaLogo => _seleniumDriver.FindElement(By.Id(""));
+        private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.Id("privacy_link"));
+        private IWebElement _spartaLogo => _seleniumDriver.FindElement(By.Id("logo"));
         private IWebElement _traineeTrackerLink => _seleniumDriver.FindElement(By.Id(""));
-        private IWebElement _myProfileButton => _seleniumDriver.FindElement(By.Id(""));
-        private IWebElement _myTrackersButton => _seleniumDriver.FindElement(By.Id(""));
-        private IWebElement _myTrainerButton => _seleniumDriver.FindElement(By.Id(""));
+        private IWebElement _myProfileButton => _seleniumDriver.FindElement(By.Id("my_profile_link"));
+        private IWebElement _myTrackersButton => _seleniumDriver.FindElement(By.Id("my_trackers_link"));
+        private IWebElement _myTrainerButton => _seleniumDriver.FindElement(By.Id("my_trainer_link"));
         private IWebElement _week1Button => _seleniumDriver.FindElement(By.Id(""));
         private IWebElement _week2Button => _seleniumDriver.FindElement(By.Id(""));
         private IWebElement _week3Button => _seleniumDriver.FindElement(By.Id(""));
