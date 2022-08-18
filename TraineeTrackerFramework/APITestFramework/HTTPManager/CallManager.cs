@@ -32,8 +32,13 @@ namespace APITestApp.HTTPManager
                     {
                         string[] trainer = code.Split(','); ;
                         _request.Resource = $"{AppConfigReader.baseUrl}{resource}";
-                        foreach(string word in trainer)
-                            _request.AddJsonBody(new { word });
+                        _request.AddJsonBody(new { firstname = trainer[0], lastname= trainer[1], title = trainer[2], email = trainer[3], permissionrole = trainer[4] });
+                    }
+                    else if(method == Method.Put)
+                    {
+                        string[] updateTrainer = code.Split(','); ;
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{updateTrainer[0]}";
+                        _request.AddJsonBody(new { id = updateTrainer[0], firstname = updateTrainer[1], lastname = updateTrainer[2], title = updateTrainer[3], email = updateTrainer[4], permissionrole = updateTrainer[5] });
                     }
                     else
                     {
@@ -45,32 +50,6 @@ namespace APITestApp.HTTPManager
                     Response = await _client.ExecuteAsync(_request);
 
                     return (Response.Content, (int)Response.StatusCode);
-                //Create a new playlist
-                //case Resource.playlists:
-                //    _request.Resource = $"{AppConfigReader.BaseUrl}users/{AppConfigReader.UserID}/{resource}/";
-                //    _request.AddJsonBody(new { Name = code });
-                //    _request.Method = method;
-                //    Response = await _client.ExecuteAsync(_request);
-                //    return (Response.Content, (int)Response.StatusCode);
-                ////Get track
-                //case Resource.gettrack:
-                //    _request.Resource = $"{AppConfigReader.BaseUrl}tracks/{code}";
-                //    _request.Method = method;
-                //    Response = await _client.ExecuteAsync(_request);
-                //    return (Response.Content, (int)Response.StatusCode);
-                ////Get tracks from playlist
-                //case Resource.gettracks:
-                //    _request.Resource = $"{AppConfigReader.BaseUrl}playlists/{code}/tracks/";
-                //    _request.Method = method;
-                //    Response = await _client.ExecuteAsync(_request);
-                //    return (Response.Content, (int)Response.StatusCode);
-                ////Add or delete tracks from liked list
-                //case Resource.tracks:
-                //    _request.Resource = $"{AppConfigReader.BaseUrl}me/{resource}/";
-                //    _request.AddJsonBody(new { ids = code.Split(',') });
-                //    _request.Method = method;
-                //    Response = await _client.ExecuteAsync(_request);
-                //    return (Response.Content, (int)Response.StatusCode);
                 default:
                     throw new ArgumentException();
 
