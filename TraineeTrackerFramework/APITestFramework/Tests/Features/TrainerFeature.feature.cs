@@ -96,7 +96,7 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("I have setup a request with \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
-testRunner.When("I execute the GET request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I execute the GET Trainer request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
 testRunner.Then("I should receive a status code of 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -128,7 +128,7 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("I have setup a request with \"roflmao_xD\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 14
-testRunner.When("I execute the GET request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I execute the GET Trainer request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 15
 testRunner.Then("I should receive a status code of 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -164,7 +164,7 @@ testRunner.And("I have setup a request with \"Thomas,Wolstencroft,Mr.,twolse@spa
                         "ner\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
-testRunner.When("I execute the CREATE request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I execute the CREATE Trainer request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 22
 testRunner.Then("I should receive a status code of 201", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -200,7 +200,7 @@ testRunner.And("I have setup a request with \"7,Tommy,Wolstencroft,Mr.,twolse@sp
                         "iner\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
-testRunner.When("I execute the UPDATE request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I execute the UPDATE Trainer request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 29
 testRunner.Then("I should receive a status code of 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -236,7 +236,7 @@ testRunner.And("I have setup a request with \"9999wow,Tommy,Wolstencroft,Mr.,two
                         "om,Trainer\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 35
-testRunner.When("I execute the UPDATE request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I execute the UPDATE Trainer request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 36
 testRunner.Then("I should receive a status code of 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

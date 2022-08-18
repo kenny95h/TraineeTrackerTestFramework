@@ -32,8 +32,8 @@ public class TrainerFeatureStepDefinitions
         this._endpoint = endpoint;
     }
 
-    [When(@"I execute the CREATE request")]
-    public async Task WhenIExecuteTheCREATERequest()
+    [When(@"I execute the CREATE Trainer request")]
+    public async Task WhenIExecuteTheCreateTrainerRequest()
     {
         try
         {
@@ -45,8 +45,8 @@ public class TrainerFeatureStepDefinitions
         }
     }
 
-    [When(@"I execute the GET request")]
-    public async Task WhenIExecuteTheGETRequest()
+    [When(@"I execute the GET Trainer request")]
+    public async Task WhenIExecuteTheGetTrainerRequest()
     {
         try
         {
@@ -59,8 +59,8 @@ public class TrainerFeatureStepDefinitions
         }
     }
 
-    [When(@"I execute the UPDATE request")]
-    public async Task WhenIExecuteTheUPDATERequest()
+    [When(@"I execute the UPDATE Trainer request")]
+    public async Task WhenIExecuteTheUpdateTrainerRequest()
     {
         try
         {
