@@ -46,7 +46,7 @@ public class CourseFeatureStepDefinitions : SharedStepDefinitions
         {
             _exception = ex;
         }
-    }*/
+    }
 
 
     [Then(@"the name of the course ""([^""]*)"" is available in the database")]
