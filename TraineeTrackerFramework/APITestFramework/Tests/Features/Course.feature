@@ -2,17 +2,17 @@
 
 Course CRUD functionality
 
-@HappyPath
-Scenario: Get Course with a valid endpoint
-Given I have setup a request with "1"
-When I execute the GET Course request
-Then I should receive a status code of 200 
+#@HappyPath
+#Scenario: Get Course with a valid endpoint
+#Given I have setup a request with "1"
+#When I execute the GET Course request
+#Then I should receive a status code of 200 
 
-@SadPath
-Scenario: Get Course with an invalid endpoint
-Given I have setup a request with "cheesegromit"
-When I execute the GET Course request
-Then I should receive a status code of 400
+#@SadPath
+#Scenario: Get Course with an invalid endpoint
+#Given I have setup a request with "cheesegromit"
+#When I execute the GET Course request
+#Then I should receive a status code of 400
 
 @HappyPath
 Scenario: Create Course with a valid endpoint
