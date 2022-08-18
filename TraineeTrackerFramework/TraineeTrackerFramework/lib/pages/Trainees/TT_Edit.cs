@@ -11,7 +11,7 @@ namespace TraineeTrackerFramework.lib.pages.Trainees;
 public class TT_Edit
 {
     private IWebDriver _seleniumDriver;
-    private string _traineesDetailsURL = AppConfigReader.TraineesDetailsURL;
+    private string _traineesDetailsURL = AppConfigReader.TraineesEditURL;
 
     #region Properties and Fields
     private int _traineeID => Int32.Parse(_seleniumDriver.Url.Split("?id=")[1]);

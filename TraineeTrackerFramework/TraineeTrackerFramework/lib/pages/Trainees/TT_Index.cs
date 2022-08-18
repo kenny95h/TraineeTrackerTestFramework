@@ -10,7 +10,7 @@ namespace TraineeTrackerFramework.lib.pages.Trainees;
 public class TT_Index
 {
     private IWebDriver _seleniumDriver;
-    private string _traineesDetailsURL = AppConfigReader.TraineesDetailsURL;
+    private string _traineesDetailsURL = AppConfigReader.TraineesIndexURL;
 
     #region Properties and Fields
     private IWebElement _spartaLogo => _seleniumDriver.FindElement(By.XPath("//img[@src='/assets/sparta-logo.png']"));
