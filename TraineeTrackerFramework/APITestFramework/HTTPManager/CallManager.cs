@@ -47,6 +47,7 @@ namespace APITestApp.HTTPManager
                     return Response.Content;
 
                 case Resource.Trackers:
+
                     if (method == Method.Post)
                     {
                         string[] updateTracker = code.Split(','); ;
@@ -88,7 +89,6 @@ namespace APITestApp.HTTPManager
                     Response = await _client.ExecuteAsync(_request);
 
                     return Response.Content;
-
 
                 case Resource.Trainees:
                     if (method == Method.Get)
