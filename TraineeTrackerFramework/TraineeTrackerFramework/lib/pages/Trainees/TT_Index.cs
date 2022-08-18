@@ -33,7 +33,7 @@ public class TT_Index
     private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.Id("privacy_link"));
     #endregion
 
-    public TT_Index(WebDriver SeleniumDriver)
+    public TT_Index(IWebDriver SeleniumDriver)
     {
         _seleniumDriver = SeleniumDriver;
         _traineeDict = new Dictionary<string, Dictionary<string, IWebElement>>();
