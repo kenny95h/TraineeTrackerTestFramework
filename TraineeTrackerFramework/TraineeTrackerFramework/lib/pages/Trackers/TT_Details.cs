@@ -11,7 +11,7 @@ namespace TraineeTrackerFramework.lib.pages.Trackers
     {
         #region Properties and Fields
         private IWebDriver _seleniumDriver;
-        private string _trackerDetailsURL = AppConfigReader.TrackerDetailsURL;
+        private string _trackerDetailsURL = AppConfigReader.TrackersDetailsURL;
         private IWebElement _editLink => _seleniumDriver.FindElement(By.Id(""));
         private IWebElement _backToListLink => _seleniumDriver.FindElement(By.Id(""));
         private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.Id(""));
