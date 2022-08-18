@@ -8,7 +8,6 @@ namespace APITestFramework.Services
 {
     public class TrackerServices
     {
-        public IService _tracker;
         public CallManager CallManager { get; set; }
         public JObject Json_Response { get; set; }
         public DTO<Tracker> TrackerResponseDTO { get; set; }
@@ -22,8 +21,6 @@ namespace APITestFramework.Services
         {
             CallManager = new CallManager();
             TrackerResponseDTO = new DTO<Tracker>();
-
-            _tracker = tracker;
         }
 
         public async Task MakeRequestAsync(string tracker, string auth)
