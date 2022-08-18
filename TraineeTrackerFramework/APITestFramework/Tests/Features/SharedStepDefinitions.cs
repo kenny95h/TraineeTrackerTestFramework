@@ -10,7 +10,7 @@ public class SharedStepDefinitions
 {
     public string Endpoint;
     public string Auth;
-
+    public string ResponseContent;
     [Given(@"I am an admin")]
     public void GivenIAmAnAdmin()
     {
@@ -34,5 +34,16 @@ public class SharedStepDefinitions
         Endpoint = endpoint;
     }
 
+    [Then(@"I should receive a response equal to ""([^""]*)""")]
+    public void ThenIShouldReceiveAResponseEqualTo(string expectedResponse)
+    {
+        Assert.That(expectedResponse, Is.EqualTo(ResponseContent));
+    }
+
+    [Then(@"I should receive a response containing ""([^""]*)""")]
+    public void ThenIShouldReceiveAResponseContaining(string expectedResponse)
+    {
+        Assert.That(expectedResponse, Does.Contain(ResponseContent));
+    }
 
 }

@@ -38,4 +38,12 @@ public class TrackerFeatureStepDefinitions : SharedStepDefinitions
     {
         Assert.That(_trackerService.GetStatus(), Is.EqualTo(expectedStatus));
     }
+
+    [Then(@"I should receive all the trackers")]
+    public void ThenIShouldReceiveAllTheTrackers()
+    {
+        Assert.That(_trackerService.Response, Does.Contain("{\"id\":1,\"weekNumber\":1,\"stop\":\"Enter comment here\",\"start\":\"Enter comment here\",\"continue\":\"Enter comment here\",\"comment\":\"Enter comment here\",\"technicalSkill\":1,\"consultantSkill\":1,\"trainee\":null},{\"id\":2,\"weekNumber\":2,\"stop\":\"Enter comment here\",\"start\":\"Enter comment here\",\"continue\":\"Enter comment here\",\"comment\":\"Enter comment here\",\"technicalSkill\":1,\"consultantSkill\":1,\"trainee\":null},{\"id\":3,\"weekNumber\":3,\"stop\":\"Enter comment here\",\"start\":\"Enter comment here\",\"continue\":\"Enter comment here\",\"comment\":\"Enter comment here\",\"technicalSkill\":1,\"consultantSkill\":1,\"trainee\":null},"));
+        Assert.That(_trackerService.Response, Does.Contain("{\"id\":88,\"weekNumber\":8,\"stop\":\"Enter comment here\",\"start\":\"Enter comment here\",\"continue\":\"Enter comment here\",\"comment\":\"Enter comment here\",\"technicalSkill\":1,\"consultantSkill\":1,\"trainee\":null}"));
+    }
+
 }

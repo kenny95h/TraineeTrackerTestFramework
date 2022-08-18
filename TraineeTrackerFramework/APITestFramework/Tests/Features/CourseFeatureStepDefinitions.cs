@@ -43,6 +43,7 @@ public class CourseFeatureStepDefinitions : SharedStepDefinitions
     public async Task WhenIExecuteTheCreateCourseRequest()
     {
         await _courseService.CreateRequestAsync(Endpoint, Auth);
+        ResponseContent
     }
 
     [When(@"I execute the the DELETE Course request")]
