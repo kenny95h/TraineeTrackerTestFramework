@@ -40,7 +40,7 @@ namespace TraineeTrackerFramework.lib.pages.Admin
         // all the courses
         public void EditTraineeLnk() => _editTrainee.Click();
         public void EditTrainerLnk() => _editTrainer.Click();
-        public void EditCourseLnk() => _editTrainer.Click();
+        public void EditCourseLnk() => _editCourse.Click();
         public void ViewTraineeLnk() => _viewDetailTrainee.Click();
         public void ViewTrainerLnk() => _viewDetailTrainer.Click();
         public void ViewCourseLnk() => _viewDetailCourse.Click();
