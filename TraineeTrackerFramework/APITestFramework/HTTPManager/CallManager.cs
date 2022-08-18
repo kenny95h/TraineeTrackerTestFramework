@@ -28,7 +28,17 @@ namespace APITestApp.HTTPManager
             switch (resource)
             {
                 case Resource.Trainers:
-                    _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{code}";
+                    if(method == Method.Post)
+                    {
+                        string[] trainer = code.Split(','); ;
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}";
+                        foreach(string word in trainer)
+                            _request.AddJsonBody(new { word });
+                    }
+                    else
+                    {
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{code}";
+                    }
 
                     _request.Method = method;
 
