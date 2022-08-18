@@ -22,7 +22,7 @@ namespace APITestApp.HTTPManager
             _request.AddHeader("Content-Type", "application/json");
         }
 
-        public async Task<(string, int)> MakeRequestAsync(string auth, Resource resource, string code, Method method)
+        public async Task<string> MakeRequestAsync(string auth, Resource resource, string code, Method method)
         {
             _request.AddHeader("Authorization", auth);
             switch (resource)
@@ -49,7 +49,7 @@ namespace APITestApp.HTTPManager
 
                     Response = await _client.ExecuteAsync(_request);
 
-                    return (Response.Content, (int)Response.StatusCode);
+                    return Response.Content;
                 default:
                     throw new ArgumentException();
 

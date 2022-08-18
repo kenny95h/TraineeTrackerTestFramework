@@ -15,13 +15,13 @@ namespace APITestFramework.Tests
         [OneTimeSetUp]
         public async Task OneTimeSetUpAsync()
         {
-            await _trainerServices.UpdateRequestAsync("7,Tom,Wolstencroft,Mr.,twolse@spartaglobal.com,Trainer", AppConfigReader.AdminAuth);
+            await _trainerServices.UpdateRequestAsync("7,Tommy,Wolstencroft,Mr.,twolse@spartaglobal.com,Trainer", AppConfigReader.AdminAuth);
         }
 
         [Test]
         public void StatusCode_Is200()
         {
-            Assert.That(_trainerServices.status, Is.EqualTo(200));
+            Assert.That(_trainerServices.GetStatus(), Is.EqualTo(200));
         }
 
         [Test]

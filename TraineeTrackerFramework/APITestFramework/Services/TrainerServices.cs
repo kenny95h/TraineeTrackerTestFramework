@@ -27,7 +27,7 @@ namespace APITestFramework.Services
 
         public async Task MakeRequestAsync(string trainer, string auth)
         {
-            (Response, status) = await CallManager.MakeRequestAsync(auth, Resource.Trainers, trainer, Method.Get); 
+            Response = await CallManager.MakeRequestAsync(auth, Resource.Trainers, trainer, Method.Get); 
 
             Json_Response = JObject.Parse(Response);
 
@@ -36,7 +36,7 @@ namespace APITestFramework.Services
 
         public async Task CreateRequestAsync(string trainer, string auth)
         {
-            (Response, status) = await CallManager.MakeRequestAsync(auth, Resource.Trainers, trainer, Method.Post); 
+            Response = await CallManager.MakeRequestAsync(auth, Resource.Trainers, trainer, Method.Post); 
 
             Json_Response = JObject.Parse(Response);
 
@@ -45,13 +45,18 @@ namespace APITestFramework.Services
 
         public async Task UpdateRequestAsync(string trainer, string auth)
         {
-            (Response, status) = await CallManager.MakeRequestAsync(auth, Resource.Trainers, trainer, Method.Put);
+            Response= await CallManager.MakeRequestAsync(auth, Resource.Trainers, trainer, Method.Put);
 
             //Response only returns true/false - Cannot convert
 
             //Json_Response = JObject.Parse(Response);
 
             //TrainerResponseDTO.DeserializeResponse(Response);
+        }
+
+        public int GetStatus()
+        {
+            return (int)CallManager.Response.StatusCode;
         }
     }
 }
