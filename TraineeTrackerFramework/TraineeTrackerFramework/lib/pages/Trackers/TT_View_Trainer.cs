@@ -16,9 +16,9 @@ namespace TraineeTrackerFramework.lib.pages.Trackers
         public TT_View_Trainer(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
 
         #region Methods
-        public void GetFullName() => _fullName.ToString();
-        public void GetEmail() => _email.ToString();
-        public void GetContactNumber() => _contactNumber.ToString();
+        public string GetFullName() => _fullName.Text;
+        public string GetEmail() => _email.Text;
+        public string GetContactNumber() => _contactNumber.Text;
         #endregion
 
     }
