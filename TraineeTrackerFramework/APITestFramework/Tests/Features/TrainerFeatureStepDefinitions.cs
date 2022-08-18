@@ -11,29 +11,63 @@ public class TrainerFeatureStepDefinitions
     ScenarioContext _scenarioContext;
     private TrainerServices _trainerService;
     private TrainerResponse _trainer;
-    private HttpResponseMessage _response;
-    private string _endpoint; 
+    private string _endpoint;
+    private string _auth;
     public TrainerFeatureStepDefinitions(ScenarioContext scenarioContext)
     {
         this._scenarioContext = scenarioContext;
         this._trainerService = new TrainerServices();
+        this._auth = "";
     }
 
-    [Given(@"I have setup a GET request with an endpoint ""([^""]*)""")]
-    public void GivenIHaveSetupAGETRequestWithAnEndpoint(string endpoint)
+    [Given(@"I am an admin")]
+    public void GivenIAmAnAdmin()
+    {
+        this._auth = AppConfigReader.AdminAuth;
+    }
+
+    [Given(@"I have setup a request with ""([^""]*)""")]
+    public void GivenIHaveSetupARequestWith(string endpoint)
     {
         this._endpoint = endpoint;
     }
 
-    [When(@"I execute the request")]
-    public async Task WhenIExecuteTheRequest()
+    [When(@"I execute the CREATE request")]
+    public async Task WhenIExecuteTheCREATERequest()
     {
         try
         {
-            await _trainerService.MakeRequestAsync(_endpoint, AppConfigReader.AdminAuth);
+            await _trainerService.CreateRequestAsync(_endpoint, _auth);
+        }
+        catch
+        {
+
+        }
+    }
+
+    [When(@"I execute the GET request")]
+    public async Task WhenIExecuteTheGETRequest()
+    {
+        try
+        {
+            await _trainerService.MakeRequestAsync(_endpoint, _auth);
             _trainer = _trainerService.TrainerResponseDTO.Response;
         }
-        catch 
+        catch
+        {
+
+        }
+    }
+
+    [When(@"I execute the UPDATE request")]
+    public async Task WhenIExecuteTheUPDATERequest()
+    {
+        try
+        {
+            await _trainerService.UpdateRequestAsync(_endpoint, _auth);
+            _trainer = _trainerService.TrainerResponseDTO.Response;
+        }
+        catch
         {
 
         }
@@ -42,6 +76,6 @@ public class TrainerFeatureStepDefinitions
     [Then(@"I should receive a status code of (.*)")]
     public void ThenIShouldReceiveAStatusCodeOf(int expectedStatus)
     {
-        Assert.That((int)_trainerService.status, Is.EqualTo(expectedStatus));
+        Assert.That(_trainerService.GetStatus(), Is.EqualTo(expectedStatus));
     }
 }
