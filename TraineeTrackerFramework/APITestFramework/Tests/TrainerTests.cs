@@ -15,7 +15,7 @@ namespace APITestFramework.Tests
         [OneTimeSetUp]
         public async Task OneTimeSetUpAsync()
         {
-            await _trainerServices.MakeRequestAsync("5",AppConfigReader.AdminAuth);
+            await _trainerServices.MakeRequestAsync("1",AppConfigReader.AdminAuth);
         }
 
         [Test]
