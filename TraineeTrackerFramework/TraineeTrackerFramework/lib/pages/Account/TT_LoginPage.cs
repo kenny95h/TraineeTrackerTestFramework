@@ -14,7 +14,7 @@ public class TT_LoginPage
     private string _loginPageURL = AppConfigReader.AccountLoginURL;
     private IWebElement _usernameField => _seleniumDriver.FindElement(By.Id("username_input"));
     private IWebElement _passwordField => _seleniumDriver.FindElement(By.Id("password_input"));
-    private IWebElement _loginButton => _seleniumDriver.FindElement(By.Id("submit-button"));
+    private IWebElement _loginButton => _seleniumDriver.FindElement(By.Id("submit_button"));
     private IWebElement _usernameAlert => _seleniumDriver.FindElement(By.Id("username_error_msg"));
     private IWebElement _passwordAlert => _seleniumDriver.FindElement(By.Id("password_error_msg"));
     private IWebElement _spartaLogo => _seleniumDriver.FindElement(By.Id("logo"));
