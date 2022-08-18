@@ -11,7 +11,7 @@ namespace TraineeTrackerFramework.lib.pages.Trackers
     {
         #region Properties and Fields
         private IWebDriver _seleniumDriver;
-        private string _createTrackerURL = AppConfigReader.CreateTrackerURL;
+        private string _createTrackerURL = AppConfigReader.TrackersCreateURL;
    
 
 
