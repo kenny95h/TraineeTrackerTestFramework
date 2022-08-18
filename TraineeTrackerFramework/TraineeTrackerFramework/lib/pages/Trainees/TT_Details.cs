@@ -25,7 +25,7 @@ public class TT_Details
     private IWebElement _profileLink => _seleniumDriver.FindElement(By.XPath("//dt[text()='Profile Link']/following-sibling::dd"));
     private IWebElement _editLink => _seleniumDriver.FindElement(By.XPath($"//a[@href='/Trainees/Edit?id={_traineeID}']"));
     private IWebElement _backToListLink => _seleniumDriver.FindElement(By.XPath("//a[@href='/Trainees']"));
-    private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.XPath("//a[@href='/Privacy']"));
+    private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.Id("privacy_link"));
     #endregion
 
     public TT_Details(IWebDriver SeleniumDriver) => _seleniumDriver = SeleniumDriver;
