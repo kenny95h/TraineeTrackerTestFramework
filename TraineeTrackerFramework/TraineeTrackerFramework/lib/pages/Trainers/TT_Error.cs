@@ -19,10 +19,10 @@ namespace TraineeTrackerFramework.lib.pages.Trainers
         public TT_Error(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
 
         #region methods
-        public string GetErrorTitle => _errorH1.Text;
-        public string GetErrorText => _errorH2.Text;
-        public string GetDevMode => _devMode.Text;
-        public string PageTitle => _seleniumDriver.Title;
+        public string GetErrorTitle() => _errorH1.Text;
+        public string GetErrorText() => _errorH2.Text;
+        public string GetDevMode() => _devMode.Text;
+        public string PageTitle() => _seleniumDriver.Title;
         #endregion
     }
 }
