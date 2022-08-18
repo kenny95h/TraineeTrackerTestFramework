@@ -160,7 +160,8 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("I am an admin", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 20
-testRunner.And("I have setup a request with \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have setup a request with \"Engineering120,2022-08-18T00:00:00,8,Charlie,Batten," +
+                        "Mr.,cb@spartaglobal.com,Trainer\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
 testRunner.When("I execute the CREATE Course request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

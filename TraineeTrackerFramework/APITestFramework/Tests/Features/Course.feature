@@ -17,7 +17,7 @@ Then I should receive a status code of 400
 @HappyPath
 Scenario: Create Course with a valid endpoint
 Given I am an admin
-And I have setup a request with "1"
+And I have setup a request with "Engineering120,2022-08-18T00:00:00,8,Charlie,Batten,Mr.,cb@spartaglobal.com,Trainer"
 When I execute the CREATE Course request
 Then I should receive a status code of 201 
 
