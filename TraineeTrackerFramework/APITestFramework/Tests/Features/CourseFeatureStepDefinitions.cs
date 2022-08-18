@@ -39,6 +39,12 @@ public class CourseFeatureStepDefinitions : SharedStepDefinitions
         Assert.That(_courseService.GetStatus(), Is.EqualTo(expectedStatus));
     }
 
+    [When(@"I execute the CREATE Course request")]
+    public void WhenIExecuteTheCreateCourseRequest()
+    {
+        throw new PendingStepException();
+    }
+
     [When(@"I execute the the DELETE Course request")]
     public void WhenIExecuteTheTheDeleteCourseRequest()
     {
