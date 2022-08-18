@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TraineeTrackerFramework.lib.pages.Trackers
 {
-    public class TT_Create
+    public class TT_CreateTrackerPage
     {
         #region Properties and Fields
         private IWebDriver _seleniumDriver;
