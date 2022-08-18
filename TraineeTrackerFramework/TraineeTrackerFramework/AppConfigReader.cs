@@ -4,6 +4,7 @@ namespace TraineeTrackerFramework;
 
 public static class AppConfigReader
 {
+<<<<<<< HEAD
     public static readonly string AccountLoginURL = ConfigurationManager.AppSettings["account_login_url"];
     public static readonly string AccountAccessDeniedURL = ConfigurationManager.AppSettings["account_accessdenied_url"];
     public static readonly string AdminIndexURL = ConfigurationManager.AppSettings["admin_index_url"];
@@ -27,4 +28,9 @@ public static class AppConfigReader
     public static readonly string PrivacyURL = ConfigurationManager.AppSettings["privacy_url"];
     public static readonly string ErrorURL = ConfigurationManager.AppSettings["error_url"];
     public static readonly string IndexURL = ConfigurationManager.AppSettings["index_url"];
+=======
+    public static readonly string LoginURL = ConfigurationManager.AppSettings["login_url"];
+    public static readonly string IndexURL = ConfigurationManager.AppSettings["index_url"];
+    //Needs dll 
+>>>>>>> dev
 }

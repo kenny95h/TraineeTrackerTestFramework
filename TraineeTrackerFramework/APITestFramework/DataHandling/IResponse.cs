@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APITestApp.DataHandling
 {
-    internal interface IResponse
+    public interface IResponse
     {
     }
 }
