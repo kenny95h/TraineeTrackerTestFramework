@@ -29,7 +29,7 @@ public class TT_Edit
     private IWebElement _privacyPolicyLink => _seleniumDriver.FindElement(By.Id("privacy_link"));
     #endregion
 
-    public TT_Edit(WebDriver SeleniumDriver) => _seleniumDriver = SeleniumDriver;
+    public TT_Edit(IWebDriver SeleniumDriver) => _seleniumDriver = SeleniumDriver;
 
     #region Methods
     public int GetID() => _traineeID;

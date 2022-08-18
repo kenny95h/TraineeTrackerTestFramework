@@ -2,9 +2,9 @@
 {
     public enum Resource // THESE ARE WRONG!!!
     {
-        GetTrainee,
+        Trainees,
         Trainers,
-        GetCourse,
-        GetTracker
+        Courses,
+        Trackers
     }
 }
