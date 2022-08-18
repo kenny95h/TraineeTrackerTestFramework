@@ -94,7 +94,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.Given("I on the Login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I am on the Login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
  testRunner.And("I input valid admin credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
