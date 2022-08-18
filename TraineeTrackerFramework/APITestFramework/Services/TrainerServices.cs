@@ -27,7 +27,7 @@ namespace APITestFramework.Services
 
         public async Task MakeRequestAsync(string trainer, string auth)
         {
-            (Response, status) = await CallManager.MakeRequestAsync(auth, Resource.Trainers, trainer, Method.Get); // Will not work. MakeRequestAsync needs uncommenting
+            (Response, status) = await CallManager.MakeRequestAsync(auth, Resource.Trainers, trainer, Method.Get);
 
             Json_Response = JObject.Parse(Response);
 

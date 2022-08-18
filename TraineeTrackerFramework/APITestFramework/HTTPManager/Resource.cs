@@ -7,13 +7,4 @@
         GetCourse,
         GetTracker
     }
-
-    //public enum Resource
-    //{
-    //    gettrack,
-    //    playlists,
-    //    playlisttracks,
-    //    gettracks,
-    //    tracks
-    //}
 }
