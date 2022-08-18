@@ -50,9 +50,22 @@ namespace APITestApp.HTTPManager
                     Response = await _client.ExecuteAsync(_request);
 
                     return Response.Content;
+
+                case Resource.Trainees:
+                    if (method == Method.Get)
+                    {
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{code}";
+                    }
+                    else if (method == Method.Delete)
+                    {
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{code}";
+                    }
+                    _request.Method = method;
+                    Response = await _client.ExecuteAsync(_request);
+                    return Response.Content;
+
                 default:
                     throw new ArgumentException();
-
             }
         }
     }
