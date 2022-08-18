@@ -23,10 +23,15 @@ namespace APITestFramework.Services
 
         public async Task MakeRequestAsync(string trainee, string auth)
         {
-            //(TraineeResponse, status) = await CallManager.MakeRequestAsync(auth, Resource.GetTrainee, trainee, Method.Post); // Will not work. MakeRequestAsync needs uncommenting
-
+            Response = await CallManager.MakeRequestAsync(auth, Resource.Trainees, trainee, Method.Get);
             Json_Response = JObject.Parse(Response);
+            TraineeResponseDTO.DeserializeResponse(Response);
+        }
 
+        public async Task DeleteRequestAsync(string trainee, string auth)
+        {
+            Response = await CallManager.MakeRequestAsync(auth, Resource.Trainees, trainee, Method.Delete);
+            Json_Response = JObject.Parse(Response);
             TraineeResponseDTO.DeserializeResponse(Response);
         }
         public int GetStatus()
