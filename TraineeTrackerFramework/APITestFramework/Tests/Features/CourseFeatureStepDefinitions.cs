@@ -1,9 +1,8 @@
+using System;
+using TechTalk.SpecFlow;
 using APITestApp.DataHandling;
 using APITestFramework.Services;
-using System;
-using System.IO;
-using TechTalk.SpecFlow;
-
+using APITestApp;
 namespace APITestFramework.Tests.Features;
 
 [Binding]
