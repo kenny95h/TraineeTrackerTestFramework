@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="BDD\Step\" />
     <Folder Include="BDD\Features\" />
   </ItemGroup>
 
