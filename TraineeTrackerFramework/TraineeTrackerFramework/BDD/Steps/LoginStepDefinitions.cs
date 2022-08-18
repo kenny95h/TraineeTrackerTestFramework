@@ -63,6 +63,7 @@ namespace TraineeTrackerFramework.BDD.Steps
 		{
 			GivenIOnTheLoginPage();
 			GivenIInputValidAdminCredentials();
+			WhenIPressTheLoginButton();
 		}
 
 		[When(@"I press the Logout button")]
@@ -74,7 +75,7 @@ namespace TraineeTrackerFramework.BDD.Steps
 		[Then(@"I should be taken to the Login page")]
 		public void ThenIShouldBeTakenToTheLoginPage()
 		{
-			Assert.That(TT_Website.SeleniumDriver.Url, Is.EqualTo(AppConfigReader.AccountLoginURL));
+			Assert.That(TT_Website.SeleniumDriver.Url, Does.Contain(AppConfigReader.AccountLoginURL));
 		}
 
 		[AfterScenario]
