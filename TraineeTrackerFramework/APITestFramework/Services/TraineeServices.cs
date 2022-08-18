@@ -1,4 +1,5 @@
-﻿using APITestApp.DataHandling;
+﻿using APITestApp;
+using APITestApp.DataHandling;
 using APITestApp.HTTPManager;
 using Newtonsoft.Json.Linq;
 using RestSharp;
@@ -20,9 +21,9 @@ namespace APITestFramework.Services
             TraineeResponseDTO = new DTO<TraineeResponse>();
         }
 
-        public async Task MakeRequestAsync(string trainee)
+        public async Task MakeRequestAsync(string trainee, string auth)
         {
-            //(TraineeResponse, status) = await CallManager.MakeRequestAsync(Resource.GetTrainee, trainee, Method.Post); // Will not work. MakeRequestAsync needs uncommenting
+            //(TraineeResponse, status) = await CallManager.MakeRequestAsync(auth, Resource.GetTrainee, trainee, Method.Post); // Will not work. MakeRequestAsync needs uncommenting
 
             Json_Response = JObject.Parse(Response);
 
