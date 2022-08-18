@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Folder Include="BDD\Features\" />
-    <Folder Include="BDD\Steps\" />
   </ItemGroup>
 
   <ItemGroup>
