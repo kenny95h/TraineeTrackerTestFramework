@@ -31,8 +31,8 @@ namespace APITestFramework.Services
         public async Task DeleteRequestAsync(string trainee, string auth)
         {
             Response = await CallManager.MakeRequestAsync(auth, Resource.Trainees, trainee, Method.Delete);
-            Json_Response = JObject.Parse(Response);
-            TraineeResponseDTO.DeserializeResponse(Response);
+            //Json_Response = JObject.Parse(Response);
+            //TraineeResponseDTO.DeserializeResponse(Response);
         }
         public int GetStatus()
         {
