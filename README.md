@@ -261,6 +261,84 @@ Then I land on the trianers detials page
 
 All tests pass
 
+
+### Index Page (View Trainees Details)
+
+#### Features (from `TraineesDetails.feature`)
+
+```csharp
+@HappyPath
+Scenario: 6.1.1 Admin view a trainee details
+	Given I am logged in as an admin on the trainee list page
+	When I click Details
+	Then I should land on the trainee details page
+
+@HappyPath
+Scenario: 6.1.2 Trainer view a trainee details
+	Given I am logged in as a trainer on the trainee list page
+	When I click Details
+	Then I should land on the trainee details page
+```
+
+#### Tests
+
+<details>
+  <summary>Step Definitions</summary>
+  
+  ```csharp
+    public class TraineesDetailsStepDefinitions
+      {
+        public LoginStepDefinitions _loginStepDefs = new LoginStepDefinitions();
+
+        [Given(@"I am logged in as an admin on the trainee list page")]
+        public void GivenIAmLoggedInAsAnAdmin()
+        {
+            _loginStepDefs.GivenIOnTheLoginPage();
+            _loginStepDefs.GivenIInputValidAdminCredentials();
+            _loginStepDefs.WhenIPressTheLoginButton();
+        }
+
+        [Given(@"I am logged in as a trainer on the trainee list page")]
+        public void GivenIAmLoggedInAsATrainerOnTheTraineeListPage()
+        {
+            _loginStepDefs.GivenIOnTheLoginPage();
+            _loginStepDefs.GivenIInputValidTrainerCredentials();
+            _loginStepDefs.WhenIPressTheLoginButton();
+            _loginStepDefs.TT_Website.SeleniumDriver.Navigate().GoToUrl("https://localhost:7234/Trainers/Index");
+        }
+
+
+        [When(@"I click Details")]
+        public void WhenIClickDetails()
+        {
+            _loginStepDefs.TT_Website.SeleniumDriver.Manage().Window.Maximize();
+            _loginStepDefs.TT_Website.TT_Trainers_IndexPage.ClickTraineeDetails();
+        }
+
+        [Then(@"I should land on the trainee details page")]
+        public void ThenIShouldLandOnTheTraineeDetailsPage()
+        {
+            Assert.That(_loginStepDefs.TT_Website.SeleniumDriver.Url, Does.Contain("https://localhost:7234/Trainees/Details?id="));
+        }
+
+        [AfterScenario]
+        public void DisposeWebDriver()
+        {
+            _loginStepDefs.TT_Website.SeleniumDriver.Quit();
+        }
+    }
+  ```
+</details>
+
+#### Outcomes
+
+WEB 6.1.1 Admin view a trainee details :heavy_check_mark:
+
+WEB 6.1.2 Trainer view a trainees details :heavy_check_mark:
+
+All tests pass. :white_check_mark:
+
+
 # Page Object Models:
 
 ## Courses
@@ -270,37 +348,37 @@ Below are all public methods that are available for each page under the 'Courses
 ### Delete Course Page
 
 ```c#
-public TT_CoursesDeletePage(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
-        public void VisitPage() => _seleniumDriver.Navigate().GoToUrl(_coursesDeletePageURL);
-        public string GetCourseName() => _courseName.Text;
-        public string GetCourseStartDate() => _courseStartDate.Text;
-        public string GetCourseDurationWeeks() => _courseLengthWeeks.Text;
-        public void ClickDeleteButton() => _deleteButton.Click();
-        public void ClickPreviousLink() => _previousLink.Click();
+public TT_CoursesDeletePage(IWebDriver seleniumDriver)
+        public void VisitPage()
+        public string GetCourseName()
+        public string GetCourseStartDate()
+        public string GetCourseDurationWeeks()
+        public void ClickDeleteButton()
+        public void ClickPreviousLink()
 ```
 
 ### Course Details Page
 
 ```c#
-public TT_CoursesDetailsPage(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
-        public void VisitPage() => _seleniumDriver.Navigate().GoToUrl(_coursesDetailsPageURL);
-        public string GetCourseName() => _courseName.Text;
-        public string GetCourseStartDate() => _courseStartDate.Text;
-        public string GetCourseDurationWeeks() => _courseDurationWeeks.Text;
-        public void ClickEditLink() => _editLink.Click();
-        public void ClickPreviousLink() => _previousLink.Click();
+public TT_CoursesDetailsPage(IWebDriver seleniumDriver)
+        public void VisitPage()
+        public string GetCourseName()
+        public string GetCourseStartDate()
+        public string GetCourseDurationWeeks()
+        public void ClickEditLink()
+        public void ClickPreviousLink()
 ```
 
 ### Course Edit Page
 
 ```c#
-public TT_CoursesEditPage(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
-        public void VisitPage() => _seleniumDriver.Navigate().GoToUrl(_coursesEditPageURL);
-        public void InputName(string courseName) => _nameInputField.SendKeys(courseName);
-        public void InputDate(string courseStartDate) => _dateInputField.SendKeys(courseStartDate);
-        public void InputDuration(string courseDurationWeeks) => _weeksLongInputField.SendKeys(courseDurationWeeks);
-        public void ClickSubmitButton() => _submitButton.Click();
-        public void ClickPreviousLink() => _previousLink.Click();
+public TT_CoursesEditPage(IWebDriver seleniumDriver)
+        public void VisitPage()
+        public void InputName(string courseName)
+        public void InputDate(string courseStartDate)
+        public void InputDuration(string courseDurationWeeks)
+        public void ClickSubmitButton() => _submitButton.Click()
+        public void ClickPreviousLink() => _previousLink.Click()
 ```
 
 ## Trackers
