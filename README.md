@@ -61,6 +61,43 @@ From here the further endpoints that could be defined were:
 | /Trackers/     | https://localhost:7234/api/Trackers   | to access all trackers             |
 | /Trackers/<id> | https://localhost:7234/api/Trackers/3 | to access a specific id            |
 
+
+## How The API Test Framework Works
+
+The test classes use NUnit and SpecFlow the create and run test cases
+![pic11](pic11.png)
+
+The service classes allow us to make API requests and store responses
+![pic12](pic12.png)
+
+The HTTP Manager deals with RestSharp to make API requests and get responses
+![pic13](pic13.png)
+
+The Data Handling Classes deserialize the JSON string that we receive from the API response into a C# object, which is easier to read and parse through
+![pic14](pic14.png)
+
+## How to Run The Tests
+
+### Database Setup Before Running The Tests
+Open the local database in SQL Server
+![pic1](pic1.png)
+
+Right-click on relevant database table and view data
+![pic2](pic2.png)
+
+Extra lines can be added at the bottom (ID is automated +1 of last ID). Previous IDs cannot be added here.
+![pic3](pic3.png)
+
+Press script button to open the database script of all current data entries
+![pic4](pic4.png)
+
+Manually add values for previous IDs, where relevant
+![pic5](pic5.png)
+
+Press the execute button to add in the new entries
+![pic6](pic6.png)
+
+
 ## Web Testing
 
 ![Postman](https://raw.githubusercontent.com/kenny95h/TraineeTrackerTestFramework/dev/images/postman-api.jpg)
