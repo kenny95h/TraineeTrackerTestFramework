@@ -9,33 +9,39 @@ namespace TraineeTrackerFramework.BDD.Steps
     [Binding]
     public class TraineesDetailsStepDefinitions
     {
-        public TT_Website<ChromeDriver> TT_Website { get; } = new TT_Website<ChromeDriver>();
+        // public TT_Website<ChromeDriver> TT_Website { get; } = new TT_Website<ChromeDriver>();
+        public LoginStepDefinitions _loginStepDefs = new LoginStepDefinitions();
 
         [Given(@"I am logged in as an admin on the trainee list page")]
         public void GivenIAmLoggedInAsAnAdmin()
         {
-            TT_Website.TT_Account_LoginPage.VisitLoginPage();
-            TT_Website.TT_Account_LoginPage.InputUsername("admin");
-            TT_Website.TT_Account_LoginPage.InputPassword("password");
-            TT_Website.TT_Account_LoginPage.ClickSignIn();
+            _loginStepDefs.GivenIOnTheLoginPage();
+            _loginStepDefs.GivenIInputValidAdminCredentials();
+            _loginStepDefs.WhenIPressTheLoginButton();
+
+            //TT_Website.TT_Account_LoginPage.VisitLoginPage();
+            //TT_Website.TT_Account_LoginPage.InputUsername("admin");
+            //TT_Website.TT_Account_LoginPage.InputPassword("password");
+            //TT_Website.TT_Account_LoginPage.ClickSignIn();
         }
 
         [When(@"I click Details")]
         public void WhenIClickDetails()
         {
-            TT_Website.TT_Admin_TT_IndexPage.EditTraineeLnk();
+            _loginStepDefs.TT_Website.TT_Admin_TT_IndexPage.EditTraineeLnk();
+            // TT_Website.TT_Admin_TT_IndexPage.EditTraineeLnk();
         }
 
         [Then(@"I should land on the trainee details page")]
         public void ThenIShouldLandOnTheTraineeDetailsPage()
         {
-            Assert.That(TT_Website.SeleniumDriver.Url, Is.EqualTo(""));
+            Assert.That(_loginStepDefs.TT_Website.SeleniumDriver.Url, Is.EqualTo(""));
         }
 
         [AfterScenario]
         public void DisposeWebDriver()
         {
-            TT_Website.SeleniumDriver.Quit();
+            _loginStepDefs.TT_Website.SeleniumDriver.Quit();
         }
     }
 }
