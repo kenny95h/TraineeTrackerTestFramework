@@ -408,74 +408,74 @@ Unavailable
 ### Tracker Details Page
 
 ```c#
-public void VisitTrackerDetailsPage() => _seleniumDriver.Navigate().GoToUrl(_trackerDetailsURL);
-        public void ClickEdit() => _editLink.Click();
-        public void ClickBackToList() => _backToListLink.Click();
-        public void ClickPrivacyPolicy() => _privacyPolicyLink.Click();
-        public void ClickSpartaLogo() => _spartaLogo.Click();
-        public void ClickTraineeTracker() => _traineeTrackerLink.Click();
-        public void ClickMyProfile() => _myProfileButton.Click();
-        public void ClickMyTrackers() => _myTrackersButton.Click();
-        public void ClickMyTrainer() => _myTrainerButton.Click();
-        public void ClickWeek1() => _week1Button.Click();
-        public void ClickWeek2() => _week2Button.Click();
-        public void ClickWeek3() => _week3Button.Click();
-        public void ClickWeek4() => _week4Button.Click();
-        public void ClickWeek5() => _week5Button.Click();
-        public void ClickWeek6() => _week6Button.Click();
-        public void ClickWeek7() => _week7Button.Click();
-        public void ClickWeek8() => _week8Button.Click();
-        public void ClickLogout() => _logoutButton.Click();
-        public string GetPageTitle() => _seleniumDriver.Title;
+		public void VisitTrackerDetailsPage()
+        public void ClickEdit() 
+        public void ClickBackToList()
+        public void ClickPrivacyPolicy() 
+        public void ClickSpartaLogo() 
+        public void ClickTraineeTracker()
+        public void ClickMyProfile() 
+        public void ClickMyTrackers()
+        public void ClickMyTrainer() 
+        public void ClickWeek1() 
+        public void ClickWeek2()
+        public void ClickWeek3() 
+        public void ClickWeek4() 
+        public void ClickWeek5() 
+        public void ClickWeek6()
+        public void ClickWeek7()
+        public void ClickWeek8() 
+        public void ClickLogout() 
+        public string GetPageTitle() 
 ```
 
 ### Edit Tracker Page
 
 ```c#
- public void VisitEditTrackerPage() => _seleniumDriver.Navigate().GoToUrl(_editTrackerURL);
-        public void InputTechnicalSkill(string technicalSkill) => _technicalSkillField.SendKeys(technicalSkill);
-        public void InputConsultantSkill(string consultantSkill) => _consultantSkillField.SendKeys(consultantSkill);
-        public void InputStop(string stop) => _stopField.SendKeys(stop);
-        public void InputStart(string start) => _startField.SendKeys(start);
-        public void InputContinue(string continueText) => _continueField.SendKeys(continueText);
-        public void InputComment(string comment) => _commentField.SendKeys(comment);
-        public void ClickSave() => _saveButton.Click();
-        public void ClickBackToList() => _backToListLink.Click();
-        public void ClickPrivacyPolicy() => _privacyPolicyLink.Click();
-        public void ClickSpartaLogo() => _spartaLogo.Click();
-        public void ClickTraineeTracker() => _traineeTrackerLink.Click();
-        public void ClickMyProfile() => _myProfileButton.Click();
-        public void ClickMyTrackers() => _myTrackersButton.Click();
-        public void ClickMyTrainer() => _myTrainerButton.Click();
-        public void ClickWeek1() => _week1Button.Click();
-        public void ClickWeek2() => _week2Button.Click();
-        public void ClickWeek3() => _week3Button.Click();
-        public void ClickWeek4() => _week4Button.Click();
-        public void ClickWeek5() => _week5Button.Click();
-        public void ClickWeek6() => _week6Button.Click();
-        public void ClickWeek7() => _week7Button.Click();
-        public void ClickWeek8() => _week8Button.Click();
-        public void ClickLogout() => _logoutButton.Click();
-        public string GetPageTitle() => _seleniumDriver.Title;
+ public void VisitEditTrackerPage() 
+        public void InputTechnicalSkill(string technicalSkill) 
+        public void InputConsultantSkill(string consultantSkill) 
+        public void InputStop(string stop) 
+        public void InputStart(string start)
+        public void InputContinue(string continueText) 
+        public void InputComment(string comment) 
+        public void ClickSave() 
+        public void ClickBackToList() 
+        public void ClickPrivacyPolicy() 
+        public void ClickSpartaLogo() 
+        public void ClickTraineeTracker() 
+        public void ClickMyProfile() 
+        public void ClickMyTrackers()
+        public void ClickMyTrainer() 
+        public void ClickWeek1() 
+        public void ClickWeek2() 
+        public void ClickWeek3()
+        public void ClickWeek4() 
+        public void ClickWeek5()
+        public void ClickWeek6() 
+        public void ClickWeek7() 
+        public void ClickWeek8()
+        public void ClickLogout() 
+        public string GetPageTitle() 
 ```
 
 ### Tracker Index Page
 
 ```c#
-  public void ClickSpartaLogo() => _spartaLogo.Click();
-    public string GetPageTitle() => _seleniumDriver.Title;
-    public string GetTitleHeader() => _pageTitleHeader.Text;
-    public void ClickCreateNew() => _createNewTraineeLink.Click();
-    public string GetFilterText() => _searchFilter.Text;
-    public void SetFilterText(string text) => _searchFilter.SendKeys(text);
-    public void ClickSubmitFilter() => _submitFilter.Click();
-    public void ClickResetFilter() => _resetFilter.Click();
-    public string FindEmailByUsername(string id) => _traineeDict.ContainsKey($"{id}@spartaglobal.com") ? $"{id}@spartaglobal.com" : "";
-    public string FindDetailByEmail(string email, string requestedDetail) => _traineeDict[email][requestedDetail].Text;
-    public void ClickEditByEmail(string email) => _traineeDict[email]["tracker_edit"].Click();
-    public void ClickDetailsByEmail(string email) => _traineeDict[email]["tracker_details"].Click();
-    public void ClickDeleteByEmail(string email) => _traineeDict[email]["tracker_delete"].Click();
-    public void ClickPrivacy() => _privacyPolicyLink.Click();
+  public void ClickSpartaLogo() 
+    public string GetPageTitle() 
+    public string GetTitleHeader()
+    public void ClickCreateNew() 
+    public string GetFilterText() 
+    public void SetFilterText(string text)
+    public void ClickSubmitFilter() 
+    public void ClickResetFilter() 
+    public string FindEmailByUsername(string id) 
+    public string FindDetailByEmail(string email, string requestedDetail) 
+    public void ClickEditByEmail(string email) 
+    public void ClickDetailsByEmail(string email) 
+    public void ClickDeleteByEmail(string email) 
+    public void ClickPrivacy() 
 ```
 
 
