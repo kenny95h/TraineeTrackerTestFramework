@@ -1,4 +1,4 @@
-# What we were testing
+# Introduction
 
 This project developed a framework for testing the Trainee Tracker app built by Sparta's C# Engineering 113 team. Two aspects of the app were subjected to testing - the web front-end GUI and the API that formed part of the server backend. 
 
@@ -55,13 +55,16 @@ From here the further endpoints that could be defined were:
 | /Trainers      | https://localhost:7234/api/Trainers/  | to return all trainers             |
 | /Trainers/<id> | https://localhost:7234/api/Trainers/2 | to access a specific trainer       |
 | /Courses       | https://localhost:7234/api/Courses/   | to access all courses              |
-| /Courses/<id>  | https://localhost:7234/api/Courses/2  | to access a specific course by id  |
+| /Courses/<id>  | https://localhost:7234/api/Courses/1  | to access a specific course by id  |
 | /Trainees      | https://localhost:7234/api/Trainees/  | to access all trainees             |
-| /Trainees/<id> | https://localhost:7234/api/Trainees/  | to access a specific trainee by id |
+| /Trainees/<id> | https://localhost:7234/api/Trainees/4 | to access a specific trainee by id |
+| /Trackers/     | https://localhost:7234/api/Trackers   | to access all trackers             |
+| /Trackers/<id> | https://localhost:7234/api/Trackers/3 | to access a specific id            |
 
 ## Web Testing
 
-
+![Postman](https://raw.githubusercontent.com/kenny95h/TraineeTrackerTestFramework/dev/images/postman-api.jpg)
+=======
 ### Login Page
 
 #### Features
@@ -538,6 +541,18 @@ Unavailable
 
 # How to use the frameworks
 
+## API
+
+- Data Handling
+
+- DTO - Data Transfer Object
+
+- HTTPManager
+
+  
+
+![TestExplorer](https://raw.githubusercontent.com/kenny95h/TraineeTrackerTestFramework/dev/images/run-api-framework.jpg)
+
 # Collaborators 
 
 # Defects found (raise as issues in GitHub Project board)
@@ -624,6 +639,8 @@ Further Comment:
 No further comment
 
 # How to extend the framework
+
+
 
 
 
