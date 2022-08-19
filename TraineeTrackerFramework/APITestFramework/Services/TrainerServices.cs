@@ -19,6 +19,9 @@ namespace APITestFramework.Services
 
         public int status;
 
+        private List<Course> trainersCourseList = new List<Course>();
+        private List<TraineeResponse> traineesList = new List<TraineeResponse>();
+
         public TrainerServices()
         {
             CallManager = new CallManager();
@@ -57,6 +60,35 @@ namespace APITestFramework.Services
         public int GetStatus()
         {
             return (int)CallManager.Response.StatusCode;
+        }
+
+        public void GetTrainersCourses()
+        {
+            foreach (Course course in TrainerResponseDTO.Response.courses)
+            {
+                trainersCourseList.Add(course);
+            }
+        }
+            
+        public void GetTrainersTrainees()
+        {
+            foreach (TraineeResponse trainee in TrainerResponseDTO.Response.trainees)
+            {
+                traineesList.Add(trainee);
+            }
+        }
+
+        public bool GetCorrectTrainee()
+        {
+            for (int i = 0; i < trainersCourseList.Count; i++)
+            {
+                if (trainersCourseList[i].trainees[i] == traineesList[i])
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

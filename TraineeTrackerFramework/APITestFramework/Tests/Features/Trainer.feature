@@ -35,4 +35,3 @@ And I have setup a request with "9999wow,Tommy,Wolstencroft,Mr.,twolse@spartaglo
 When I execute the UPDATE Trainer request
 Then I should receive a status code of 400
 
-

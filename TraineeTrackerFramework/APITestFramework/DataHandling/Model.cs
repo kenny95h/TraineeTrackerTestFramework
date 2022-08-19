@@ -1,6 +1,5 @@
 ﻿namespace APITestApp.DataHandling
 {
-    
     public class Course : IResponse
     {
         public int id { get; set; }
@@ -20,7 +19,7 @@
         public string email { get; set; }
         public object contactNumber { get; set; }
         public string permissionRole { get; set; }
-        public object[] trainees { get; set; }
+        public TraineeResponse[] trainees { get; set; }
         public Course[] courses { get; set; }
     }
 

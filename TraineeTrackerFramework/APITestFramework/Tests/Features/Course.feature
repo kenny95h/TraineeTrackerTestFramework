@@ -5,7 +5,7 @@ Course CRUD functionality
 @HappyPath
 Scenario: Delete course
 Given I am an admin
-And I have setup a request with "1"
+And I have setup a request with "3"
 When I execute the the DELETE Course request
 Then I am returned a status code 204
 
