@@ -18,6 +18,7 @@ public class TraineeFeatureStepDefinitions : SharedStepDefinitions
         this._traineeService = new TraineeServices();
         Auth = "";
     }
+
     [When(@"I execute the GET Trainee request")]
     public async Task WhenIExecuteTheGetTraineeRequest()
     {
