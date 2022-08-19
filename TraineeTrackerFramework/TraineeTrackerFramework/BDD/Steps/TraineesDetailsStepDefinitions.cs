@@ -29,9 +29,15 @@ namespace TraineeTrackerFramework.BDD.Steps
             _loginStepDefs.TT_Website.SeleniumDriver.Navigate().GoToUrl("https://localhost:7234/Trainers/Index");
         }
 
-
         [When(@"I click Details")]
         public void WhenIClickDetails()
+        {
+            _loginStepDefs.TT_Website.SeleniumDriver.Manage().Window.Maximize();
+            _loginStepDefs.TT_Website.TT_Admin_TT_IndexPage.ViewTraineeLnk();
+        }
+
+            [When(@"I click on a trainee's name")]
+        public void WhenIClickTraineeDetails()
         {
             _loginStepDefs.TT_Website.SeleniumDriver.Manage().Window.Maximize();
             _loginStepDefs.TT_Website.TT_Trainers_IndexPage.ClickTraineeDetails();

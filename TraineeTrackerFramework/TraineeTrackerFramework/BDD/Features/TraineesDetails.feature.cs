@@ -128,7 +128,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("I am logged in as a trainer on the trainee list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 14
- testRunner.When("I click Details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click on a trainee\'s name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 15
  testRunner.Then("I should land on the trainee details page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
