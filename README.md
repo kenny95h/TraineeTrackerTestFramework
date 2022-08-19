@@ -573,7 +573,7 @@ Message: 
 ![Access Denied](https://user-images.githubusercontent.com/108397810/185591567-3b721f55-f5c4-4db1-bb8c-c4c4558557bb.PNG)
 
 #### Trainee Creation Defects
-During exploration of the Login page the following defects has been identified:
+During exploration of the index trainee page the following defects has been identified:
  - The create button is not working.
 
 Defect report:
@@ -597,8 +597,8 @@ Try to Click the "Create New" button
 Further Comment:
 No further comment
 
-#### Trainee Creation Defects
-During exploration of the Login page the following defects has been identified:
+#### Viewing Trainer Defects
+During exploration of the Index page the following defects has been identified:
  - Trainer detail cannot be viewed.
 
 Defect report:
