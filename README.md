@@ -98,6 +98,11 @@ Scenario: User Logout
 	Then I should be taken to the Login page
 ```
 #### Tests
+
+<details>
+    <summary>Step Definitions</summary>
+</details>
+
 ```c#
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
@@ -188,6 +193,8 @@ namespace TraineeTrackerFramework.BDD.Steps
 }
 
 ```
+</details>
+
 #### Outcome
 
 Trainer login test fails, this has been documented in the 'Defects' section below. Other tests pass.
@@ -214,7 +221,6 @@ Then I land on the trianers detials page
 ```
 <details>
   <summary>Step Definitions</summary>
-  
   ```c#
     public class ViewTrainersDetailsStepDefinitions
       {
