@@ -64,7 +64,7 @@ public class TrackerFeatureStepDefinitions : SharedStepDefinitions
     [Then(@"I should receive a status code of (.*)")]
     public void ThenIShouldReceiveAStatusCodeOf(int expectedStatus)
     {
-        Assert.That(expectedStatus, Is.EqualTo(_trackerService.GetStatus()));
+        Assert.That(_trackerService.GetStatus(), Is.EqualTo(expectedStatus));
     }
 
     [Then(@"I should receive all the trackers")]
