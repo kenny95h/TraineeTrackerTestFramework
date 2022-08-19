@@ -63,27 +63,27 @@ From here the further endpoints that could be defined were:
   
   ### Login Page
   
-    #### Featues
-    ```c#
-    not entered
-    ```
-    #### Tests
-    ```c#
-    not entered
-    ```
-    #### Outcome
+  #### Featues
+  ```c#
+  not entered
+  ```
+  #### Tests
+  ```c#
+  not entered
+  ```
+  #### Outcome
   
   ### View Details Page
   
-    #### Featues
-    ```c#
-    
-    ```
-    #### Tests
-    ```c#
-    not entered
-    ```
-    #### Outcome
+  #### Featues
+  ```c#
+
+  ```
+  #### Tests
+  ```c#
+  not entered
+  ```
+  #### Outcome
 
 # Page Object Models:
 
