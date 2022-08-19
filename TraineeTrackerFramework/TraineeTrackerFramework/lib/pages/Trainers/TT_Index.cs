@@ -12,6 +12,7 @@ namespace TraineeTrackerFramework.lib.pages.Trainers
         private IWebElement _input_search=> _seleniumDriver.FindElement(By.Id("account-botton"));
         private IWebElement _input_button=> _seleniumDriver.FindElement(By.Id("account-botton"));
         private IWebElement _reset_button=> _seleniumDriver.FindElement(By.Id("account-botton"));
+        private IWebElement _trainee_details => _seleniumDriver.FindElement(By.LinkText("Tuan Vu"));
         #endregion
 
         public TT_Index(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
@@ -24,6 +25,7 @@ namespace TraineeTrackerFramework.lib.pages.Trainers
         public void InputSearchQuery(string query) => _input_search.SendKeys(query);
         public void ClickInputButton() => _input_button.Click();
         public void ClickResetButton() => _reset_button.Click();
+        public void ClickTraineeDetails() => _trainee_details.Click();
         #endregion
     }
 }

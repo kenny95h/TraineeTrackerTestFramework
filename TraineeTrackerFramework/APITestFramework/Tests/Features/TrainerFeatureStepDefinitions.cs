@@ -12,6 +12,8 @@ public class TrainerFeatureStepDefinitions : SharedStepDefinitions
     private TrainerServices _trainerService;
     private TrainerResponse _trainer;
 
+    
+
     public TrainerFeatureStepDefinitions(ScenarioContext scenarioContext)
     {
         this._scenarioContext = scenarioContext;
@@ -60,6 +62,7 @@ public class TrainerFeatureStepDefinitions : SharedStepDefinitions
 
         }
     }
+
 
     [Then(@"I should receive a status code of (.*)")]
     public void ThenIShouldReceiveAStatusCodeOf(int expectedStatus)

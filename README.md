@@ -206,6 +206,7 @@ Trainer login test fails, this has been documented in the 'Defects' section belo
 
 ```c#
 
+
 Feature: ViewTrainersDetails
 
 A short summary of the feature
@@ -220,7 +221,6 @@ Then I land on the trianers detials page
 ```
 <details>
   <summary>Step Definitions</summary>
-
   ```c#
     public class ViewTrainersDetailsStepDefinitions
       {
