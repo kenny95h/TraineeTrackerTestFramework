@@ -87,6 +87,46 @@ From here the further endpoints that could be defined were:
 
 # Page Object Models:
 
+## Courses
+
+Below are all public methods that are available for each page under the 'Courses' folder.
+
+### Delete Course Page
+
+```c#
+public TT_CoursesDeletePage(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
+        public void VisitPage() => _seleniumDriver.Navigate().GoToUrl(_coursesDeletePageURL);
+        public string GetCourseName() => _courseName.Text;
+        public string GetCourseStartDate() => _courseStartDate.Text;
+        public string GetCourseDurationWeeks() => _courseLengthWeeks.Text;
+        public void ClickDeleteButton() => _deleteButton.Click();
+        public void ClickPreviousLink() => _previousLink.Click();
+```
+
+### Course Details Page
+
+```c#
+public TT_CoursesDetailsPage(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
+        public void VisitPage() => _seleniumDriver.Navigate().GoToUrl(_coursesDetailsPageURL);
+        public string GetCourseName() => _courseName.Text;
+        public string GetCourseStartDate() => _courseStartDate.Text;
+        public string GetCourseDurationWeeks() => _courseDurationWeeks.Text;
+        public void ClickEditLink() => _editLink.Click();
+        public void ClickPreviousLink() => _previousLink.Click();
+```
+
+### Course Edit Page
+
+```c#
+public TT_CoursesEditPage(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
+        public void VisitPage() => _seleniumDriver.Navigate().GoToUrl(_coursesEditPageURL);
+        public void InputName(string courseName) => _nameInputField.SendKeys(courseName);
+        public void InputDate(string courseStartDate) => _dateInputField.SendKeys(courseStartDate);
+        public void InputDuration(string courseDurationWeeks) => _weeksLongInputField.SendKeys(courseDurationWeeks);
+        public void ClickSubmitButton() => _submitButton.Click();
+        public void ClickPreviousLink() => _previousLink.Click();
+```
+
 ## Trackers
 
 Below are all public methods that are available for each page under the 'Trackers' folder.
