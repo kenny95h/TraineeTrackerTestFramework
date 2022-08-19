@@ -18,24 +18,29 @@ namespace TraineeTrackerFramework.BDD.Steps
             _loginStepDefs.GivenIOnTheLoginPage();
             _loginStepDefs.GivenIInputValidAdminCredentials();
             _loginStepDefs.WhenIPressTheLoginButton();
-
-            //TT_Website.TT_Account_LoginPage.VisitLoginPage();
-            //TT_Website.TT_Account_LoginPage.InputUsername("admin");
-            //TT_Website.TT_Account_LoginPage.InputPassword("password");
-            //TT_Website.TT_Account_LoginPage.ClickSignIn();
         }
+
+        [Given(@"I am logged in as a trainer on the trainee list page")]
+        public void GivenIAmLoggedInAsATrainerOnTheTraineeListPage()
+        {
+            _loginStepDefs.GivenIOnTheLoginPage();
+            _loginStepDefs.GivenIInputValidTrainerCredentials();
+            _loginStepDefs.WhenIPressTheLoginButton();
+            _loginStepDefs.TT_Website.SeleniumDriver.Navigate().GoToUrl("https://localhost:7234/Trainers/Index");
+        }
+
 
         [When(@"I click Details")]
         public void WhenIClickDetails()
         {
-            _loginStepDefs.TT_Website.TT_Admin_TT_IndexPage.EditTraineeLnk();
-            // TT_Website.TT_Admin_TT_IndexPage.EditTraineeLnk();
+            _loginStepDefs.TT_Website.SeleniumDriver.Manage().Window.Maximize();
+            _loginStepDefs.TT_Website.TT_Trainers_IndexPage.ClickTraineeDetails();
         }
 
         [Then(@"I should land on the trainee details page")]
         public void ThenIShouldLandOnTheTraineeDetailsPage()
         {
-            Assert.That(_loginStepDefs.TT_Website.SeleniumDriver.Url, Is.EqualTo(""));
+            Assert.That(_loginStepDefs.TT_Website.SeleniumDriver.Url, Does.Contain("https://localhost:7234/Trainees/Details?id="));
         }
 
         [AfterScenario]
