@@ -276,7 +276,7 @@ All tests pass
 
 #### Features (from `TraineesDetails.feature`)
 
-```csharp
+```
 @HappyPath
 Scenario: 6.1.1 Admin view a trainee details
 	Given I am logged in as an admin on the trainee list page
