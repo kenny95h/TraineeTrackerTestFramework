@@ -61,6 +61,7 @@ From here the further endpoints that could be defined were:
 
 ## Web Testing
 
+
 ### Login Page
 
 #### Features
@@ -217,19 +218,12 @@ When I click on detials link
 Then I land on the trianers detials page
       
 ```
-<<<<<<< Updated upstream
-#### Step Definitions
-```c#
-public class ViewTrainersDetailsStepDefinitions
-    {
-=======
 <details>
   <summary>Step Definitions</summary>
 
   ```c#
     public class ViewTrainersDetailsStepDefinitions
       {
->>>>>>> Stashed changes
         public LoginStepDefinitions _loginStepDefinitions = new LoginStepDefinitions();
 
 
@@ -266,7 +260,9 @@ public class ViewTrainersDetailsStepDefinitions
         }
 
     }
-```
+  ```
+</details>
+
 #### Outcome
 
 All tests pass
