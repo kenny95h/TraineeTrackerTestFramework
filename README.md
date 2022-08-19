@@ -59,7 +59,31 @@ From here the further endpoints that could be defined were:
 | /Trainees      | https://localhost:7234/api/Trainees/  | to access all trainees             |
 | /Trainees/<id> | https://localhost:7234/api/Trainees/  | to access a specific trainee by id |
 
-
+## Web Testing
+  
+  ### Login Page
+  
+    #### Featues
+    ```c#
+    not entered
+    ```
+    #### Tests
+    ```c#
+    not entered
+    ```
+    #### Outcome
+  
+  ### View Details Page
+  
+    #### Featues
+    ```c#
+    
+    ```
+    #### Tests
+    ```c#
+    not entered
+    ```
+    #### Outcome
 
 # Page Object Models:
 
