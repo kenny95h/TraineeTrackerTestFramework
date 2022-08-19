@@ -51,16 +51,21 @@ namespace APITestApp.HTTPManager
                     if (method == Method.Post)
                     {
                         string[] updateTracker = code.Split(','); ;
-                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{updateTracker[0]}";
+                        _request.Resource = $"{AppConfigReader.baseUrl}{resource}";
                         _request.AddJsonBody(new
                         {
-                            stop = updateTracker[0],
-                            start = updateTracker[1],
-                            _continue = updateTracker[2],
-                            comment = updateTracker[3],
-                            technicalSkill = updateTracker[4],
-                            consultantSkill = updateTracker[5],
-                            trainee = updateTracker[6]
+                            WeekNumber = updateTracker[0],
+                            comment = updateTracker[1],
+                            technicalSkill = updateTracker[2],
+                            consultantSkill = updateTracker[3],
+                            trainee = new
+                            {
+                                firstname = updateTracker[4],
+                                lastname = updateTracker[5],
+                                title = updateTracker[6],
+                                email = updateTracker[7],
+                                permissionrole = updateTracker[8]
+                            }
                         });
                     }
                     else if (method == Method.Put)
@@ -69,14 +74,18 @@ namespace APITestApp.HTTPManager
                         _request.Resource = $"{AppConfigReader.baseUrl}{resource}/{updateTracker[0]}";
                         _request.AddJsonBody(new
                         {
-                            id = updateTracker[0],
-                            stop = updateTracker[1],
-                            start = updateTracker[2],
-                            _continue = updateTracker[3],
-                            comment = updateTracker[4],
-                            technicalSkill = updateTracker[5],
-                            consultantSkill = updateTracker[6],
-                            trainee = updateTracker[7]
+                            WeekNumber = updateTracker[1],
+                            comment = updateTracker[2],
+                            technicalSkill = updateTracker[3],
+                            consultantSkill = updateTracker[4],
+                            trainee = new
+                            {
+                                firstname = updateTracker[5],
+                                lastname = updateTracker[6],
+                                title = updateTracker[7],
+                                email = updateTracker[8],
+                                permissionrole = updateTracker[9]
+                            }
                         });
                     }
                     else
