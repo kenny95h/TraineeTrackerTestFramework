@@ -98,6 +98,11 @@ Scenario: User Logout
 	Then I should be taken to the Login page
 ```
 #### Tests
+
+<details>
+    <summary>Step Definitions</summary>
+
+
 ```c#
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
@@ -188,6 +193,8 @@ namespace TraineeTrackerFramework.BDD.Steps
 }
 
 ```
+</details>
+
 #### Outcome
 
 Trainer login test fails, this has been documented in the 'Defects' section below. Other tests pass.
@@ -214,7 +221,7 @@ Then I land on the trianers detials page
 ```
 <details>
   <summary>Step Definitions</summary>
-  
+
   ```c#
     public class ViewTrainersDetailsStepDefinitions
       {
@@ -261,6 +268,106 @@ Then I land on the trianers detials page
 
 All tests pass
 
+
+### Index Page (View Trainees Details)
+
+#### Features (from `TraineesDetails.feature`)
+
+```csharp
+@HappyPath
+Scenario: 6.1.1 Admin view a trainee details
+	Given I am logged in as an admin on the trainee list page
+	When I click Details
+	Then I should land on the trainee details page
+
+@HappyPath
+Scenario: 6.1.2 Trainer view a trainee details
+	Given I am logged in as a trainer on the trainee list page
+	When I click Details
+	Then I should land on the trainee details page
+```
+
+#### Tests
+
+<details>
+  <summary>Step Definitions</summary>
+
+  ```csharp
+    public class TraineesDetailsStepDefinitions
+      {
+        public LoginStepDefinitions _loginStepDefs = new LoginStepDefinitions();
+
+        [Given(@"I am logged in as an admin on the trainee list page")]
+        public void GivenIAmLoggedInAsAnAdmin()
+        {
+            _loginStepDefs.GivenIOnTheLoginPage();
+            _loginStepDefs.GivenIInputValidAdminCredentials();
+            _loginStepDefs.WhenIPressTheLoginButton();
+        }
+
+        [Given(@"I am logged in as a trainer on the trainee list page")]
+        public void GivenIAmLoggedInAsATrainerOnTheTraineeListPage()
+        {
+            _loginStepDefs.GivenIOnTheLoginPage();
+            _loginStepDefs.GivenIInputValidTrainerCredentials();
+            _loginStepDefs.WhenIPressTheLoginButton();
+            _loginStepDefs.TT_Website.SeleniumDriver.Navigate().GoToUrl("https://localhost:7234/Trainers/Index");
+        }
+
+
+        [When(@"I click Details")]
+        public void WhenIClickDetails()
+        {
+            _loginStepDefs.TT_Website.SeleniumDriver.Manage().Window.Maximize();
+            _loginStepDefs.TT_Website.TT_Trainers_IndexPage.ClickTraineeDetails();
+        }
+
+        [Then(@"I should land on the trainee details page")]
+        public void ThenIShouldLandOnTheTraineeDetailsPage()
+        {
+            Assert.That(_loginStepDefs.TT_Website.SeleniumDriver.Url, Does.Contain("https://localhost:7234/Trainees/Details?id="));
+        }
+
+        [AfterScenario]
+        public void DisposeWebDriver()
+        {
+            _loginStepDefs.TT_Website.SeleniumDriver.Quit();
+        }
+    }
+  ```
+</details>
+
+#### Outcomes
+
+WEB 6.1.1 Admin view a trainee details :heavy_check_mark:
+
+WEB 6.1.2 Trainer view a trainees details :heavy_check_mark:
+
+All tests pass. :white_check_mark:
+
+
+### Edit Trainee
+
+```c#
+Feature: Edit Trainee
+
+Admin and trainer can update trainee details
+
+@HappyPath
+Scenario: Editing Trainee as a Admin
+	Given I am logged in as a admin
+	And when I click on edit button for a trainee
+	When I change the trainee details
+	Then the details are updated in the database
+
+@HappyPath
+Scenario: Editing Trainee as a Trainer
+	Given I am logged in as a trainer
+	And when I click on edit button for a trainee
+	When I change the trainee details
+	Then the details are updated in the database
+```
+
 # Page Object Models:
 
 ## Courses
@@ -270,37 +377,37 @@ Below are all public methods that are available for each page under the 'Courses
 ### Delete Course Page
 
 ```c#
-public TT_CoursesDeletePage(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
-        public void VisitPage() => _seleniumDriver.Navigate().GoToUrl(_coursesDeletePageURL);
-        public string GetCourseName() => _courseName.Text;
-        public string GetCourseStartDate() => _courseStartDate.Text;
-        public string GetCourseDurationWeeks() => _courseLengthWeeks.Text;
-        public void ClickDeleteButton() => _deleteButton.Click();
-        public void ClickPreviousLink() => _previousLink.Click();
+public TT_CoursesDeletePage(IWebDriver seleniumDriver)
+        public void VisitPage()
+        public string GetCourseName()
+        public string GetCourseStartDate()
+        public string GetCourseDurationWeeks()
+        public void ClickDeleteButton()
+        public void ClickPreviousLink()
 ```
 
 ### Course Details Page
 
 ```c#
-public TT_CoursesDetailsPage(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
-        public void VisitPage() => _seleniumDriver.Navigate().GoToUrl(_coursesDetailsPageURL);
-        public string GetCourseName() => _courseName.Text;
-        public string GetCourseStartDate() => _courseStartDate.Text;
-        public string GetCourseDurationWeeks() => _courseDurationWeeks.Text;
-        public void ClickEditLink() => _editLink.Click();
-        public void ClickPreviousLink() => _previousLink.Click();
+public TT_CoursesDetailsPage(IWebDriver seleniumDriver)
+        public void VisitPage()
+        public string GetCourseName()
+        public string GetCourseStartDate()
+        public string GetCourseDurationWeeks()
+        public void ClickEditLink()
+        public void ClickPreviousLink()
 ```
 
 ### Course Edit Page
 
 ```c#
-public TT_CoursesEditPage(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
-        public void VisitPage() => _seleniumDriver.Navigate().GoToUrl(_coursesEditPageURL);
-        public void InputName(string courseName) => _nameInputField.SendKeys(courseName);
-        public void InputDate(string courseStartDate) => _dateInputField.SendKeys(courseStartDate);
-        public void InputDuration(string courseDurationWeeks) => _weeksLongInputField.SendKeys(courseDurationWeeks);
-        public void ClickSubmitButton() => _submitButton.Click();
-        public void ClickPreviousLink() => _previousLink.Click();
+public TT_CoursesEditPage(IWebDriver seleniumDriver)
+        public void VisitPage()
+        public void InputName(string courseName)
+        public void InputDate(string courseStartDate)
+        public void InputDuration(string courseDurationWeeks)
+        public void ClickSubmitButton() => _submitButton.Click()
+        public void ClickPreviousLink() => _previousLink.Click()
 ```
 
 ## Trackers
@@ -324,79 +431,110 @@ Unavailable
 ### Tracker Details Page
 
 ```c#
-public void VisitTrackerDetailsPage() => _seleniumDriver.Navigate().GoToUrl(_trackerDetailsURL);
-        public void ClickEdit() => _editLink.Click();
-        public void ClickBackToList() => _backToListLink.Click();
-        public void ClickPrivacyPolicy() => _privacyPolicyLink.Click();
-        public void ClickSpartaLogo() => _spartaLogo.Click();
-        public void ClickTraineeTracker() => _traineeTrackerLink.Click();
-        public void ClickMyProfile() => _myProfileButton.Click();
-        public void ClickMyTrackers() => _myTrackersButton.Click();
-        public void ClickMyTrainer() => _myTrainerButton.Click();
-        public void ClickWeek1() => _week1Button.Click();
-        public void ClickWeek2() => _week2Button.Click();
-        public void ClickWeek3() => _week3Button.Click();
-        public void ClickWeek4() => _week4Button.Click();
-        public void ClickWeek5() => _week5Button.Click();
-        public void ClickWeek6() => _week6Button.Click();
-        public void ClickWeek7() => _week7Button.Click();
-        public void ClickWeek8() => _week8Button.Click();
-        public void ClickLogout() => _logoutButton.Click();
-        public string GetPageTitle() => _seleniumDriver.Title;
+		public void VisitTrackerDetailsPage()
+        public void ClickEdit() 
+        public void ClickBackToList()
+        public void ClickPrivacyPolicy() 
+        public void ClickSpartaLogo() 
+        public void ClickTraineeTracker()
+        public void ClickMyProfile() 
+        public void ClickMyTrackers()
+        public void ClickMyTrainer() 
+        public void ClickWeek1() 
+        public void ClickWeek2()
+        public void ClickWeek3() 
+        public void ClickWeek4() 
+        public void ClickWeek5() 
+        public void ClickWeek6()
+        public void ClickWeek7()
+        public void ClickWeek8() 
+        public void ClickLogout() 
+        public string GetPageTitle() 
 ```
 
 ### Edit Tracker Page
 
 ```c#
- public void VisitEditTrackerPage() => _seleniumDriver.Navigate().GoToUrl(_editTrackerURL);
-        public void InputTechnicalSkill(string technicalSkill) => _technicalSkillField.SendKeys(technicalSkill);
-        public void InputConsultantSkill(string consultantSkill) => _consultantSkillField.SendKeys(consultantSkill);
-        public void InputStop(string stop) => _stopField.SendKeys(stop);
-        public void InputStart(string start) => _startField.SendKeys(start);
-        public void InputContinue(string continueText) => _continueField.SendKeys(continueText);
-        public void InputComment(string comment) => _commentField.SendKeys(comment);
-        public void ClickSave() => _saveButton.Click();
-        public void ClickBackToList() => _backToListLink.Click();
-        public void ClickPrivacyPolicy() => _privacyPolicyLink.Click();
-        public void ClickSpartaLogo() => _spartaLogo.Click();
-        public void ClickTraineeTracker() => _traineeTrackerLink.Click();
-        public void ClickMyProfile() => _myProfileButton.Click();
-        public void ClickMyTrackers() => _myTrackersButton.Click();
-        public void ClickMyTrainer() => _myTrainerButton.Click();
-        public void ClickWeek1() => _week1Button.Click();
-        public void ClickWeek2() => _week2Button.Click();
-        public void ClickWeek3() => _week3Button.Click();
-        public void ClickWeek4() => _week4Button.Click();
-        public void ClickWeek5() => _week5Button.Click();
-        public void ClickWeek6() => _week6Button.Click();
-        public void ClickWeek7() => _week7Button.Click();
-        public void ClickWeek8() => _week8Button.Click();
-        public void ClickLogout() => _logoutButton.Click();
-        public string GetPageTitle() => _seleniumDriver.Title;
+ public void VisitEditTrackerPage() 
+        public void InputTechnicalSkill(string technicalSkill) 
+        public void InputConsultantSkill(string consultantSkill) 
+        public void InputStop(string stop) 
+        public void InputStart(string start)
+        public void InputContinue(string continueText) 
+        public void InputComment(string comment) 
+        public void ClickSave() 
+        public void ClickBackToList() 
+        public void ClickPrivacyPolicy() 
+        public void ClickSpartaLogo() 
+        public void ClickTraineeTracker() 
+        public void ClickMyProfile() 
+        public void ClickMyTrackers()
+        public void ClickMyTrainer() 
+        public void ClickWeek1() 
+        public void ClickWeek2() 
+        public void ClickWeek3()
+        public void ClickWeek4() 
+        public void ClickWeek5()
+        public void ClickWeek6() 
+        public void ClickWeek7() 
+        public void ClickWeek8()
+        public void ClickLogout() 
+        public string GetPageTitle() 
 ```
 
 ### Tracker Index Page
 
 ```c#
-  public void ClickSpartaLogo() => _spartaLogo.Click();
-    public string GetPageTitle() => _seleniumDriver.Title;
-    public string GetTitleHeader() => _pageTitleHeader.Text;
-    public void ClickCreateNew() => _createNewTraineeLink.Click();
-    public string GetFilterText() => _searchFilter.Text;
-    public void SetFilterText(string text) => _searchFilter.SendKeys(text);
-    public void ClickSubmitFilter() => _submitFilter.Click();
-    public void ClickResetFilter() => _resetFilter.Click();
-    public string FindEmailByUsername(string id) => _traineeDict.ContainsKey($"{id}@spartaglobal.com") ? $"{id}@spartaglobal.com" : "";
-    public string FindDetailByEmail(string email, string requestedDetail) => _traineeDict[email][requestedDetail].Text;
-    public void ClickEditByEmail(string email) => _traineeDict[email]["tracker_edit"].Click();
-    public void ClickDetailsByEmail(string email) => _traineeDict[email]["tracker_details"].Click();
-    public void ClickDeleteByEmail(string email) => _traineeDict[email]["tracker_delete"].Click();
-    public void ClickPrivacy() => _privacyPolicyLink.Click();
+  public void ClickSpartaLogo() 
+    public string GetPageTitle() 
+    public string GetTitleHeader()
+    public void ClickCreateNew() 
+    public string GetFilterText() 
+    public void SetFilterText(string text)
+    public void ClickSubmitFilter() 
+    public void ClickResetFilter() 
+    public string FindEmailByUsername(string id) 
+    public string FindDetailByEmail(string email, string requestedDetail) 
+    public void ClickEditByEmail(string email) 
+    public void ClickDetailsByEmail(string email) 
+    public void ClickDeleteByEmail(string email) 
+    public void ClickPrivacy() 
 ```
 
+### View Trainer Page
 
+```c#
+    public string GetFullName() => _fullName.Text;
+    public string GetEmail() => _email.Text;
+    public string GetContactNumber() => _contactNumber.Text;
+```
 
+## Trainee
 
+### Create Trainee Page
+```c#
+    public void EnterFirstName(string firstName) => _firstName.SendKeys(firstName);
+    public void EnterLastName(string lastName) => _lastName.SendKeys(lastName);
+    public void EnterTitle(string title) => _title.SendKeys(title);
+    public void EnterEmail(string email) => _email.SendKeys(email);
+    public void EnterContactNumber(string contactNumber) => _contactNumber.SendKeys(contactNumber);
+    public void EnterPermissionRole(string permissionRole) => _permissionRole.SendKeys(permissionRole);
+    public void EnterProfileLink(string profileLink) => _profileLink.SendKeys(profileLink);
+    public void ClickSubmitButton() => _submitButton.Click();
+    public void ClickPrevButton() => _prev_page.Click();
+```
+
+## Trainer
+
+### Index Page
+```c#
+    public void ClickTrainersButton() => _trainers_button.Click();
+    public void ClickCoursesButton() => _courses_botton.Click();
+    public void ClickAccountButton() => _account_botton.Click();
+    public void InputSearchQuery(string query) => _input_search.SendKeys(query);
+    public void ClickInputButton() => _input_button.Click();
+    public void ClickResetButton() => _reset_button.Click();
+```
 
 # How to use the frameworks
 
@@ -435,7 +573,55 @@ Message: 
 ```
 ![Access Denied](https://user-images.githubusercontent.com/108397810/185591567-3b721f55-f5c4-4db1-bb8c-c4c4558557bb.PNG)
 
+#### Trainee Creation Defects
+During exploration of the index trainee page the following defects has been identified:
+ - The create button is not working.
 
+Defect report:
+Summary of Defect:
+The admin should be able to create new trainees by clicking the "Create New" button but that button is not working.
+
+Expected Result:
+Clicking the "Create New" takes me to a page where the admin can create a new trainee.
+
+Actual Result:
+The "Create New" button is not working so it does not take me to the page where the admin can create new trainees.
+
+Defect Description: (Hint: Steps to Reproduce)
+Trainer login details
+username: admin
+password: password
+Click Login
+Click Details for existing a trainee
+Click Back to List
+Try to Click the "Create New" button
+Further Comment:
+No further comment
+
+#### Viewing Trainer Defects
+During exploration of the Index page the following defects has been identified:
+ - Trainer detail cannot be viewed.
+
+Defect report:
+
+Summary of Defect:
+The admin should be able to view details of the trainers but the error message is received.
+
+Expected Result:
+Clicking the "Details" button for a trainer takes me to a page where the admin can view the trainer's details.
+
+Actual Result:
+Clicking the "Details" button for a trainer takes me to an error page (An unhandled exception occurred while processing the request).
+
+Defect Description: (Hint: Steps to Reproduce)
+Trainer login details
+username: admin
+password: password
+Click Login
+Click Details for existing a trainer (cfrench)
+
+Further Comment:
+No further comment
 
 # How to extend the framework
 
