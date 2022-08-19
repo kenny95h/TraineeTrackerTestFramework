@@ -59,9 +59,243 @@ From here the further endpoints that could be defined were:
 | /Trainees      | https://localhost:7234/api/Trainees/  | to access all trainees             |
 | /Trainees/<id> | https://localhost:7234/api/Trainees/  | to access a specific trainee by id |
 
+## Web Testing
 
+### Login Page
+
+#### Features
+```c#
+Feature: Login
+
+As a user, I want to be able to use my credentials, so that I can log in and out of the tracker
+
+@HappyPath
+Scenario: Admin Login
+	Given I am on the Login page
+	And I input valid admin credentials
+	When I press the Login button
+	Then I should be taken to the Index page
+
+@HappyPath
+Scenario: Trainer Login
+	Given I am on the Login page
+	And I input valid trainer credentials
+	When I press the Login button
+	Then I should be taken to the Index page
+
+@HappyPath
+Scenario: Trainee Login
+	Given I am on the Login page
+	And I input valid trainee credentials
+	When I press the Login button
+	Then I should be taken to the Tracker dashboard page
+
+@HappyPath
+Scenario: User Logout
+	Given I am logged in as any user
+	When I press the Logout button
+	Then I should be taken to the Login page
+```
+#### Tests
+```c#
+using NUnit.Framework;
+using OpenQA.Selenium.Chrome;
+using System;
+using TechTalk.SpecFlow;
+using TraineeTrackerFramework.lib;
+
+namespace TraineeTrackerFramework.BDD.Steps
+{
+	[Binding]
+	public class LoginStepDefinitions
+	{
+		public TT_Website<ChromeDriver> TT_Website { get; } = new TT_Website<ChromeDriver>();
+		//private Credentials _credentials;
+
+		[Given(@"I am on the Login page")]
+		public void GivenIOnTheLoginPage()
+		{
+			//TT_Website.TT_Account_LoginPage.VisitLoginPage();
+			TT_Website.SeleniumDriver.Navigate().GoToUrl(AppConfigReader.AccountLoginURL);
+		}
+
+		[Given(@"I input valid admin credentials")]
+		public void GivenIInputValidAdminCredentials()
+		{
+			TT_Website.TT_Account_LoginPage.InputUsername("admin");
+			TT_Website.TT_Account_LoginPage.InputPassword("password");
+		}
+
+		[When(@"I press the Login button")]
+		public void WhenIPressTheLoginButton()
+		{
+			TT_Website.TT_Account_LoginPage.ClickSignIn();
+		}
+
+		[Then(@"I should be taken to the Index page")]
+		public void ThenIShouldBeTakenToTheIndexPage()
+		{
+			Assert.That(TT_Website.SeleniumDriver.Url, Is.EqualTo(AppConfigReader.AdminIndexURL));
+		}
+
+		[Given(@"I input valid trainer credentials")]
+		public void GivenIInputValidTrainerCredentials()
+		{
+			TT_Website.TT_Account_LoginPage.InputUsername("cfrench");
+			TT_Website.TT_Account_LoginPage.InputPassword("password");
+		}
+
+		[Given(@"I input valid trainee credentials")]
+		public void GivenIInputValidTraineeCredentials()
+		{
+			TT_Website.TT_Account_LoginPage.InputUsername("pbellaby");
+			TT_Website.TT_Account_LoginPage.InputPassword("password");
+		}
+
+		[Then(@"I should be taken to the Tracker dashboard page")]
+		public void ThenIShouldBeTakenToTheTrackerDashboardPage()
+		{
+			Assert.That(TT_Website.SeleniumDriver.Url, Is.EqualTo(AppConfigReader.TrackersIndexURL));
+		}
+
+		[Given(@"I am logged in as any user")]
+		public void GivenIAmLoggedInAsAnyUser()
+		{
+			GivenIOnTheLoginPage();
+			GivenIInputValidAdminCredentials();
+			WhenIPressTheLoginButton();
+		}
+
+		[When(@"I press the Logout button")]
+		public void WhenIPressTheLogoutButton()
+		{
+			TT_Website.TT_Admin_TT_IndexPage.LogOut();
+		}
+
+		[Then(@"I should be taken to the Login page")]
+		public void ThenIShouldBeTakenToTheLoginPage()
+		{
+			Assert.That(TT_Website.SeleniumDriver.Url, Does.Contain(AppConfigReader.AccountLoginURL));
+		}
+
+		[AfterScenario]
+		public void DisposeWebDriver()
+		{
+			TT_Website.SeleniumDriver.Quit();
+		}
+	}
+}
+
+```
+#### Outcome
+
+Trainer login test fails, this has been documented in the 'Defects' section below. Other tests pass.
+
+### View Details Page
+
+
+#### Featues
+
+```c#
+
+Feature: ViewTrainersDetails
+
+A short summary of the feature
+
+@HappyPath
+Scenario: View Trainer Details Page
+Given I am logged in as an admin
+And I am on the index page
+When I click on detials link
+Then I land on the trianers detials page
+      
+```
+#### Step Definitions
+```c#
+public class ViewTrainersDetailsStepDefinitions
+    {
+        public LoginStepDefinitions _loginStepDefinitions = new LoginStepDefinitions();
+
+
+        [Given(@"I am logged in as an admin")]
+        public void GivenIAmLoggedInAsAnAdmin()
+        {
+            _loginStepDefinitions.TT_Website.SeleniumDriver.Manage().Window.Maximize();
+            _loginStepDefinitions.GivenIAmLoggedInAsAnyUser();
+        }
+
+        [Given(@"I am on the index page")]
+        public void GivenIAmOnTheIndexPage()
+        {
+            _loginStepDefinitions.TT_Website.SeleniumDriver.Navigate().GoToUrl(AppConfigReader.AdminIndexURL);
+        }
+
+        [When(@"I click on detials link")]
+        public void WhenIClickOnDetialsLink()
+        {
+            _loginStepDefinitions.TT_Website.TT_Admin_TT_IndexPage.ViewTraineeLnk();
+        }
+
+        [Then(@"I land on the trianers detials page")]
+        public void ThenILandOnTheTrianersDetialsPage()
+        {
+            Assert.That(_loginStepDefinitions.TT_Website.SeleniumDriver.Url, Is.EqualTo("https://localhost:7234/Trainees/Details?id=1"));
+
+        }
+
+        [Then(@"I should see all the infomration on the trainer")]
+        public void ThenIShouldSeeAllTheInfomrationOnTheTrainer()
+        {
+            throw new PendingStepException();
+        }
+
+    }
+```
+#### Outcome
+
+All tests pass
 
 # Page Object Models:
+
+## Courses
+
+Below are all public methods that are available for each page under the 'Courses' folder.
+
+### Delete Course Page
+
+```c#
+public TT_CoursesDeletePage(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
+        public void VisitPage() => _seleniumDriver.Navigate().GoToUrl(_coursesDeletePageURL);
+        public string GetCourseName() => _courseName.Text;
+        public string GetCourseStartDate() => _courseStartDate.Text;
+        public string GetCourseDurationWeeks() => _courseLengthWeeks.Text;
+        public void ClickDeleteButton() => _deleteButton.Click();
+        public void ClickPreviousLink() => _previousLink.Click();
+```
+
+### Course Details Page
+
+```c#
+public TT_CoursesDetailsPage(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
+        public void VisitPage() => _seleniumDriver.Navigate().GoToUrl(_coursesDetailsPageURL);
+        public string GetCourseName() => _courseName.Text;
+        public string GetCourseStartDate() => _courseStartDate.Text;
+        public string GetCourseDurationWeeks() => _courseDurationWeeks.Text;
+        public void ClickEditLink() => _editLink.Click();
+        public void ClickPreviousLink() => _previousLink.Click();
+```
+
+### Course Edit Page
+
+```c#
+public TT_CoursesEditPage(IWebDriver seleniumDriver) => _seleniumDriver = seleniumDriver;
+        public void VisitPage() => _seleniumDriver.Navigate().GoToUrl(_coursesEditPageURL);
+        public void InputName(string courseName) => _nameInputField.SendKeys(courseName);
+        public void InputDate(string courseStartDate) => _dateInputField.SendKeys(courseStartDate);
+        public void InputDuration(string courseDurationWeeks) => _weeksLongInputField.SendKeys(courseDurationWeeks);
+        public void ClickSubmitButton() => _submitButton.Click();
+        public void ClickPreviousLink() => _previousLink.Click();
+```
 
 ## Trackers
 
@@ -193,8 +427,9 @@ Message: 
   But was:  "...s://localhost:7234/Account/AccessDenied?ReturnUrl=%2FTrainees"
   ----------------------------------^
 ```
+![Access Denied](https://user-images.githubusercontent.com/108397810/185591567-3b721f55-f5c4-4db1-bb8c-c4c4558557bb.PNG)
 
-[Photo Placeholder]
+
 
 # How to extend the framework
 
