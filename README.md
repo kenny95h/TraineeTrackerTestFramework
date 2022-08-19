@@ -193,8 +193,9 @@ Message: 
   But was:  "...s://localhost:7234/Account/AccessDenied?ReturnUrl=%2FTrainees"
   ----------------------------------^
 ```
+![Access Denied](https://user-images.githubusercontent.com/108397810/185591567-3b721f55-f5c4-4db1-bb8c-c4c4558557bb.PNG)
 
-[Photo Placeholder]
+
 
 # How to extend the framework
 
