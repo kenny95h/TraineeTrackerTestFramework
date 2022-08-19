@@ -74,14 +74,14 @@ namespace APITestFramework.Tests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Get Tracker with a valid endpoint")]
+        [NUnit.Framework.DescriptionAttribute("Get Trainee with a valid endpoint")]
         [NUnit.Framework.CategoryAttribute("HappyPath")]
-        public void GetTrackerWithAValidEndpoint()
+        public void GetTraineeWithAValidEndpoint()
         {
             string[] tagsOfScenario = new string[] {
                     "HappyPath"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Tracker with a valid endpoint", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Trainee with a valid endpoint", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -106,14 +106,14 @@ testRunner.Then("I should receive a status code of 200", ((string)(null)), ((Tec
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Get Tracker with an invalid endpoint")]
+        [NUnit.Framework.DescriptionAttribute("Get Trainee with an invalid endpoint")]
         [NUnit.Framework.CategoryAttribute("SadPath")]
-        public void GetTrackerWithAnInvalidEndpoint()
+        public void GetTraineeWithAnInvalidEndpoint()
         {
             string[] tagsOfScenario = new string[] {
                     "SadPath"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Tracker with an invalid endpoint", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Trainee with an invalid endpoint", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
