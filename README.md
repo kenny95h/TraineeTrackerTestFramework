@@ -101,7 +101,7 @@ Scenario: User Logout
 
 <details>
     <summary>Step Definitions</summary>
-</details>
+
 
 ```c#
 using NUnit.Framework;
@@ -221,6 +221,7 @@ Then I land on the trianers detials page
 ```
 <details>
   <summary>Step Definitions</summary>
+
   ```c#
     public class ViewTrainersDetailsStepDefinitions
       {
@@ -290,7 +291,7 @@ Scenario: 6.1.2 Trainer view a trainee details
 
 <details>
   <summary>Step Definitions</summary>
-  
+
   ```csharp
     public class TraineesDetailsStepDefinitions
       {
