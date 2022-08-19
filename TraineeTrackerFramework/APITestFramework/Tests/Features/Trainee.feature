@@ -14,8 +14,15 @@ Given I have setup a request with "wrongy"
 When I execute the GET Trainee request
 Then I should receive a status code of 400
 
-#@HappyPath
-#Scenario: See all trainees as an Admin
-#Given I am an admin
-#When I request to read all trainees
-#Then I am dispalyed with all trainee details
+@HappyPath
+Scenario: See all trainees on my courses as a Trainer
+Given I am a trainer
+When I request to read all trainees
+Then I am displayed with all trainee details for my courses
+
+@HappyPath
+Scenario: Delete a trainee as a trainer
+Given I am a trainer
+And I have setup a request with "10"
+When I execute the DELETE trainee request
+Then I should receive a status code of 204
