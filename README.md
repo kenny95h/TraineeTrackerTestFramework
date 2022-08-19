@@ -92,10 +92,12 @@ When I click on detials link
 Then I land on the trianers detials page
       
 ```
-#### Step Definitions
-```c#
-public class ViewTrainersDetailsStepDefinitions
-    {
+<details>
+  <summary>Step Definitions</summary>
+  
+  ```c#
+    public class ViewTrainersDetailsStepDefinitions
+      {
         public LoginStepDefinitions _loginStepDefinitions = new LoginStepDefinitions();
 
 
@@ -132,7 +134,9 @@ public class ViewTrainersDetailsStepDefinitions
         }
 
     }
-```
+  ```
+</details>
+
 #### Outcome
 
 All tests pass
