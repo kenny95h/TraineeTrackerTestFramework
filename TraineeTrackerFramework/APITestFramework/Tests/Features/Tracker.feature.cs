@@ -271,14 +271,14 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("I am an admin", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 44
-testRunner.And("I have setup a request with \"1,1,stoppy,staaaarty,continue working,nocomment,100," +
-                        "4000,null\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have setup a request with \"1,comment,1,1,David,Joyce,Mr.,DJ@SpartaGlobal.com,Tr" +
+                        "ainee\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 45
 testRunner.When("I execute the CREATE Tracker request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 46
-testRunner.Then("I should receive a status code of 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I should receive a status code of 201", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -307,8 +307,8 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("I am a trainer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 51
-testRunner.And("I have setup a request with \"1,1,stoppy,starty,continue working,nocomment,100,400" +
-                        "0,null\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have setup a request with \"89,1,Added some more comments,1,1,David,Joyce,Mr.,DJ" +
+                        "@SpartaGlobal.com,Trainee\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 52
 testRunner.When("I execute the UPDATE Tracker request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

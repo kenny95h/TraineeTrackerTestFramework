@@ -41,13 +41,13 @@ And I should receive a response containing "id"
 @HappyPath
 Scenario: Create tracker
 Given I am an admin
-And I have setup a request with "1,1,stoppy,staaaarty,continue working,nocomment,100,4000,null"
+And I have setup a request with "1,comment,1,1,David,Joyce,Mr.,DJ@SpartaGlobal.com,Trainee"
 When I execute the CREATE Tracker request
-Then I should receive a status code of 200
+Then I should receive a status code of 201
 
 @HappyPath
 Scenario: Update tracker
 Given I am a trainer
-And I have setup a request with "1,1,stoppy,starty,continue working,nocomment,100,4000,null"
+And I have setup a request with "89,1,Added some more comments,1,1,David,Joyce,Mr.,DJ@SpartaGlobal.com,Trainee"
 When I execute the UPDATE Tracker request
 Then I should receive a status code of 200

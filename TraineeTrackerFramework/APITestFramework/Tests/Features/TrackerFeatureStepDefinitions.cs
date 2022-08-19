@@ -53,8 +53,6 @@ public class TrackerFeatureStepDefinitions : SharedStepDefinitions
         try
         {
             await _trackerService.CreateRequestAsync(Endpoint, Auth);
-            _tracker = _trackerService.TrackerResponseDTO.Response;
-            ResponseContent = _trackerService.Response;
         }
         catch
         {
