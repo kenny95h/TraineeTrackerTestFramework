@@ -61,6 +61,101 @@ From here the further endpoints that could be defined were:
 
 
 
+# Page Object Models:
+
+## Trackers
+
+Below are all public methods that are available for each page under the 'Trackers' folder.
+
+Some pages are not shown as they were inaccessible during the testing phases  of the project, these have been documented in the 'Defects' section.
+
+### Create Tracker Page
+
+```c#
+Unavailable
+```
+
+### Delete Tracker Page
+
+```c#
+Unavailable
+```
+
+### Tracker Details Page
+
+```c#
+public void VisitTrackerDetailsPage() => _seleniumDriver.Navigate().GoToUrl(_trackerDetailsURL);
+        public void ClickEdit() => _editLink.Click();
+        public void ClickBackToList() => _backToListLink.Click();
+        public void ClickPrivacyPolicy() => _privacyPolicyLink.Click();
+        public void ClickSpartaLogo() => _spartaLogo.Click();
+        public void ClickTraineeTracker() => _traineeTrackerLink.Click();
+        public void ClickMyProfile() => _myProfileButton.Click();
+        public void ClickMyTrackers() => _myTrackersButton.Click();
+        public void ClickMyTrainer() => _myTrainerButton.Click();
+        public void ClickWeek1() => _week1Button.Click();
+        public void ClickWeek2() => _week2Button.Click();
+        public void ClickWeek3() => _week3Button.Click();
+        public void ClickWeek4() => _week4Button.Click();
+        public void ClickWeek5() => _week5Button.Click();
+        public void ClickWeek6() => _week6Button.Click();
+        public void ClickWeek7() => _week7Button.Click();
+        public void ClickWeek8() => _week8Button.Click();
+        public void ClickLogout() => _logoutButton.Click();
+        public string GetPageTitle() => _seleniumDriver.Title;
+```
+
+### Edit Tracker Page
+
+```c#
+ public void VisitEditTrackerPage() => _seleniumDriver.Navigate().GoToUrl(_editTrackerURL);
+        public void InputTechnicalSkill(string technicalSkill) => _technicalSkillField.SendKeys(technicalSkill);
+        public void InputConsultantSkill(string consultantSkill) => _consultantSkillField.SendKeys(consultantSkill);
+        public void InputStop(string stop) => _stopField.SendKeys(stop);
+        public void InputStart(string start) => _startField.SendKeys(start);
+        public void InputContinue(string continueText) => _continueField.SendKeys(continueText);
+        public void InputComment(string comment) => _commentField.SendKeys(comment);
+        public void ClickSave() => _saveButton.Click();
+        public void ClickBackToList() => _backToListLink.Click();
+        public void ClickPrivacyPolicy() => _privacyPolicyLink.Click();
+        public void ClickSpartaLogo() => _spartaLogo.Click();
+        public void ClickTraineeTracker() => _traineeTrackerLink.Click();
+        public void ClickMyProfile() => _myProfileButton.Click();
+        public void ClickMyTrackers() => _myTrackersButton.Click();
+        public void ClickMyTrainer() => _myTrainerButton.Click();
+        public void ClickWeek1() => _week1Button.Click();
+        public void ClickWeek2() => _week2Button.Click();
+        public void ClickWeek3() => _week3Button.Click();
+        public void ClickWeek4() => _week4Button.Click();
+        public void ClickWeek5() => _week5Button.Click();
+        public void ClickWeek6() => _week6Button.Click();
+        public void ClickWeek7() => _week7Button.Click();
+        public void ClickWeek8() => _week8Button.Click();
+        public void ClickLogout() => _logoutButton.Click();
+        public string GetPageTitle() => _seleniumDriver.Title;
+```
+
+### Tracker Index Page
+
+```c#
+  public void ClickSpartaLogo() => _spartaLogo.Click();
+    public string GetPageTitle() => _seleniumDriver.Title;
+    public string GetTitleHeader() => _pageTitleHeader.Text;
+    public void ClickCreateNew() => _createNewTraineeLink.Click();
+    public string GetFilterText() => _searchFilter.Text;
+    public void SetFilterText(string text) => _searchFilter.SendKeys(text);
+    public void ClickSubmitFilter() => _submitFilter.Click();
+    public void ClickResetFilter() => _resetFilter.Click();
+    public string FindEmailByUsername(string id) => _traineeDict.ContainsKey($"{id}@spartaglobal.com") ? $"{id}@spartaglobal.com" : "";
+    public string FindDetailByEmail(string email, string requestedDetail) => _traineeDict[email][requestedDetail].Text;
+    public void ClickEditByEmail(string email) => _traineeDict[email]["tracker_edit"].Click();
+    public void ClickDetailsByEmail(string email) => _traineeDict[email]["tracker_details"].Click();
+    public void ClickDeleteByEmail(string email) => _traineeDict[email]["tracker_delete"].Click();
+    public void ClickPrivacy() => _privacyPolicyLink.Click();
+```
+
+
+
 
 
 # How to use the frameworks
@@ -68,6 +163,38 @@ From here the further endpoints that could be defined were:
 # Collaborators 
 
 # Defects found (raise as issues in GitHub Project board)
+
+#### Login page defects
+
+During exploration of the Login page the following defects has been identified:
+
+- Trainer is unable to login due to being redirected to a 'Access denied page'.
+
+Below is a defect report as well as a test summary report for the mentioned defect and a screenshot of what the defect would look like to a user.
+
+**Summary of Defect:**
+The user should be able to Login using trainer credentials but is unable to
+**Expected Result:**
+After entering trainer credentials, the user should be taken to Trainer Index page
+**Actual Result:**
+After entering trainer credentials, the user is met with an access denied page
+**Defect Description: (Hint: Steps to Reproduce)**
+Trainer login details
+username: cfrench
+password: password
+Press Login
+**Further Comment:**
+No further comment
+
+```c#
+Message: 
+  Expected string length 28 but was 65. Strings differ at index 24.
+  Expected: "...s://localhost:7234/Admin"
+  But was:  "...s://localhost:7234/Account/AccessDenied?ReturnUrl=%2FTrainees"
+  ----------------------------------^
+```
+
+[Photo Placeholder]
 
 # How to extend the framework
 
