@@ -12,6 +12,8 @@ public class TrainerFeatureStepDefinitions : SharedStepDefinitions
     private TrainerServices _trainerService;
     private TrainerResponse _trainer;
 
+    
+
     public TrainerFeatureStepDefinitions(ScenarioContext scenarioContext)
     {
         this._scenarioContext = scenarioContext;
@@ -60,6 +62,30 @@ public class TrainerFeatureStepDefinitions : SharedStepDefinitions
 
         }
     }
+
+    [When(@"I request to read all trainees")]
+    public async Task WhenIRequestToReadAllTrainees() // See all trainees on my course
+    {
+        try
+        {
+            await _trainerService.MakeRequestAsync(Endpoint, Auth);
+            _trainer = _trainerService.TrainerResponseDTO.Response;
+
+            _trainerService.GetTrainersCourses();
+            _trainerService.GetTrainersTrainees();
+        }
+        catch
+        {
+
+        }
+    }
+
+    [Then(@"I am displayed with all trainee details for my courses")]
+    public void ThenIAmDisplayedWithAllTraineeDetailsForMyCourses() // Assert that all trainees from a list are on the course
+    {
+        Assert.That(_trainerService.GetCorrectTrainee());
+    }
+
 
     [Then(@"I should receive a status code of (.*)")]
     public void ThenIShouldReceiveAStatusCodeOf(int expectedStatus)

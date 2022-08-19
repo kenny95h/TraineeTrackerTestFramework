@@ -35,4 +35,8 @@ And I have setup a request with "9999wow,Tommy,Wolstencroft,Mr.,twolse@spartaglo
 When I execute the UPDATE Trainer request
 Then I should receive a status code of 400
 
-
+@HappyPath
+Scenario: See all trainees on my courses as a Trainer
+Given I am a trainer
+When I request to read all trainees
+Then I am displayed with all trainee details for my courses
