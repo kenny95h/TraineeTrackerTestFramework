@@ -43,7 +43,7 @@ public class SharedStepDefinitions
     [Then(@"I should receive a response containing ""([^""]*)""")]
     public void ThenIShouldReceiveAResponseContaining(string expectedResponse)
     {
-        Assert.That(expectedResponse, Does.Contain(ResponseContent));
+        Assert.That(ResponseContent, Does.Contain(expectedResponse));
     }
 
 }

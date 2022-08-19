@@ -26,17 +26,45 @@ public class TrackerFeatureStepDefinitions : SharedStepDefinitions
         {
             await _trackerService.MakeRequestAsync(Endpoint, Auth);
             _tracker = _trackerService.TrackerResponseDTO.Response;
+            ResponseContent = _trackerService.Response;
         }
         catch
         {
 
         }
     }
+    [When(@"I execute the UPDATE Tracker request")]
+    public async Task WhenIExecuteTheUPDATETrackerRequest()
+    {
+        try
+        {
+            await _trackerService.UpdateRequestAsync(Endpoint, Auth);
+            _tracker = _trackerService.TrackerResponseDTO.Response;
+            ResponseContent = _trackerService.Response;
+        }
+        catch
+        {
 
+        }
+    }
+    [When(@"I execute the CREATE Tracker request")]
+    public async Task WhenIExecuteTheCreateTrackerRequest()
+    {
+        try
+        {
+            await _trackerService.CreateRequestAsync(Endpoint, Auth);
+            _tracker = _trackerService.TrackerResponseDTO.Response;
+            ResponseContent = _trackerService.Response;
+        }
+        catch
+        {
+
+        }
+    }
     [Then(@"I should receive a status code of (.*)")]
     public void ThenIShouldReceiveAStatusCodeOf(int expectedStatus)
     {
-        Assert.That(_trackerService.GetStatus(), Is.EqualTo(expectedStatus));
+        Assert.That(expectedStatus, Is.EqualTo(_trackerService.GetStatus()));
     }
 
     [Then(@"I should receive all the trackers")]
