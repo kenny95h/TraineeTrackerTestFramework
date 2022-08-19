@@ -61,29 +61,81 @@ From here the further endpoints that could be defined were:
 
 ## Web Testing
   
-  ### Login Page
+### Login Page
   
-  #### Featues
-  ```c#
-  not entered
-  ```
-  #### Tests
-  ```c#
-  not entered
-  ```
-  #### Outcome
+#### Featues
+```c#
+not entered
+```
+#### Tests
+```c#
+not entered
+```
+#### Outcome
   
-  ### View Details Page
+### View Details Page
   
-  #### Featues
-  ```c#
 
-  ```
-  #### Tests
-  ```c#
-  not entered
-  ```
-  #### Outcome
+#### Featues
+
+```c#
+
+Feature: ViewTrainersDetails
+
+A short summary of the feature
+
+@HappyPath
+Scenario: View Trainer Details Page
+Given I am logged in as an admin
+And I am on the index page
+When I click on detials link
+Then I land on the trianers detials page
+      
+```
+#### Step Definitions
+```c#
+public class ViewTrainersDetailsStepDefinitions
+    {
+        public LoginStepDefinitions _loginStepDefinitions = new LoginStepDefinitions();
+
+
+        [Given(@"I am logged in as an admin")]
+        public void GivenIAmLoggedInAsAnAdmin()
+        {
+            _loginStepDefinitions.TT_Website.SeleniumDriver.Manage().Window.Maximize();
+            _loginStepDefinitions.GivenIAmLoggedInAsAnyUser();
+        }
+
+        [Given(@"I am on the index page")]
+        public void GivenIAmOnTheIndexPage()
+        {
+            _loginStepDefinitions.TT_Website.SeleniumDriver.Navigate().GoToUrl(AppConfigReader.AdminIndexURL);
+        }
+
+        [When(@"I click on detials link")]
+        public void WhenIClickOnDetialsLink()
+        {
+            _loginStepDefinitions.TT_Website.TT_Admin_TT_IndexPage.ViewTraineeLnk();
+        }
+
+        [Then(@"I land on the trianers detials page")]
+        public void ThenILandOnTheTrianersDetialsPage()
+        {
+            Assert.That(_loginStepDefinitions.TT_Website.SeleniumDriver.Url, Is.EqualTo("https://localhost:7234/Trainees/Details?id=1"));
+
+        }
+
+        [Then(@"I should see all the infomration on the trainer")]
+        public void ThenIShouldSeeAllTheInfomrationOnTheTrainer()
+        {
+            throw new PendingStepException();
+        }
+
+    }
+```
+#### Outcome
+
+All tests pass
 
 # Page Object Models:
 
