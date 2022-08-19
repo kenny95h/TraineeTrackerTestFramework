@@ -344,10 +344,7 @@ Scenario: 6.1.2 Trainer view a trainee details
 
 WEB 6.1.1 Admin view a trainee details :heavy_check_mark:
 
-WEB 6.1.2 Trainer view a trainees details :heavy_check_mark:
-
-All tests pass. :white_check_mark:
-
+WEB 6.1.2 Trainer view a trainees details :x: (Defect Report raised)
 
 ### Edit Trainee
 
